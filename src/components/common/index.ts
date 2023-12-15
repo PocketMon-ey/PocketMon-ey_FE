@@ -7,3 +7,4 @@ export { default as SmallButton } from './Button/SmallButton/SmallButton';
 export { default as Header } from './Header/Header';
 export { default as Layout } from './Layout/Layout';
 export { default as TabBar } from './TabBar/TabBar';
+export { default as UserTab } from './UserTab/UserTab';
