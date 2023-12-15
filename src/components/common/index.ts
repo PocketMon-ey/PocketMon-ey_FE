@@ -5,3 +5,4 @@ export { default as AddButton } from './Button/AddButton/AddButton';
 export { default as BigButton } from './Button/BigButton/BigButton';
 export { default as SmallButton } from './Button/SmallButton/SmallButton';
 export { default as Header } from './Header/Header';
+export { default as Layout } from './Layout/Layout';
