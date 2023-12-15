@@ -6,3 +6,4 @@ export { default as BigButton } from './Button/BigButton/BigButton';
 export { default as SmallButton } from './Button/SmallButton/SmallButton';
 export { default as Header } from './Header/Header';
 export { default as Layout } from './Layout/Layout';
+export { default as TabBar } from './TabBar/TabBar';
