@@ -1,3 +1,10 @@
 // 예시
 // export { default as 컴포넌트이름 } from './파일이름';
-export {} from ''; //이건 지워주삼
+export { default as Card } from './Card/Card';
+export { default as AddButton } from './Button/AddButton/AddButton';
+export { default as BigButton } from './Button/BigButton/BigButton';
+export { default as SmallButton } from './Button/SmallButton/SmallButton';
+export { default as Header } from './Header/Header';
+export { default as Layout } from './Layout/Layout';
+export { default as TabBar } from './TabBar/TabBar';
+export { default as UserTab } from './UserTab/UserTab';
