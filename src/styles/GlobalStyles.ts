@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
   body{
     background-color: #F9F9FB;
     padding:30px;
+    position:relative;
   }
 
   &::-webkit-scrollbar-track {

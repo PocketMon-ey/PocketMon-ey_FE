@@ -10,6 +10,7 @@ function App() {
   return (
     <>
       <GlobalStyles />
+
       <BrowserView>
         <span style={{ color: theme.colors.primary_purple }}>
           데스크탑에서는 지원하지 않는 서비스입니다.
@@ -21,7 +22,7 @@ function App() {
         <Routes>
           {/* <Route path='/' element={<Layout />} >
         <Route index element={<Main />} /> */}
-          <Route path="/pageA" element={<ApplyLoan />} />
+          <Route path="/child/loan/apply" element={<ApplyLoan />} />
         </Routes>
       </MobileView>
     </>
