@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { theme } from '../../../../styles';
 
 type Props = { selectedcode: number; servicecode: string };
+
 export const SmallButtonContainer = styled.div<Props>`
   background-color: ${(props) =>
     props.selectedcode
