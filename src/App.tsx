@@ -7,8 +7,8 @@ import { Routes, Route } from 'react-router-dom';
 import { ParentLoanList } from './pages';
 import Layout from './components/common/Layout/Layout';
 import SelectPage from './pages/SelectPage/SelectPage';
-import ParentHome from './pages/ParentHome/ParentHome';
-import ChildHome from './pages/ChildHome/ChildHome';
+import ParentHome from './pages/Home/ParentHome/ParentHome';
+import ChildHome from './pages/Home/ChildHome/ChildHome';
 
 function App() {
   return (
@@ -24,10 +24,13 @@ function App() {
           <Route path="/" element={<SelectPage />} />
           <Route path="/parent" element={<Layout />}>
             <Route path="home" element={<ParentHome />} />
-            <Route path="loan" element={<ParentLoanList />} />
+            <Route path="loan">
+              <Route path="list" element={<ParentLoanList />} />
+            </Route>
           </Route>
           <Route path="/child" element={<Layout />}>
             <Route path="home" element={<ChildHome />} />
+            <Route path="loan"></Route>
           </Route>
         </Routes>
       </MobileView>
