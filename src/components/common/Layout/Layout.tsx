@@ -12,6 +12,8 @@ const Layout = () => {
     title = '대출 목록';
   } else if (path.includes('apply') || path.includes('checkContract')) {
     title = '대출 신청';
+  } else if (path.includes('parent/loan/judge')) {
+    title = '대출 심사';
   }
   return (
     <>

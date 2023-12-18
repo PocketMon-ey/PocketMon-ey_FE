@@ -1,7 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { BigButton } from '../../components/common';
 import { ContentBackground, TitleHeader } from '../../components/feature';
-import { StyledButtonBottom } from './ApplyLoan';
 import { styled } from 'styled-components';
 
 const CheckContract = () => {
@@ -27,7 +26,9 @@ const CheckContract = () => {
         {path === '/child/loan/checkContract' ? (
           <BigButton text="다음" />
         ) : (
-          <></>
+          <StyledButtonFlexContainer>
+            <BigButton text="승인" /> <BigButton text="반려" />
+          </StyledButtonFlexContainer>
         )}
       </StyledFlexContainer>
     </>
@@ -39,4 +40,8 @@ export default CheckContract;
 const StyledFlexContainer = styled.div`
   display: flex;
   flex-direction: column;
+`;
+const StyledButtonFlexContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;

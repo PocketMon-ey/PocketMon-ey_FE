@@ -31,6 +31,7 @@ function App() {
             <Route path="home" element={<ParentHome />} />
             <Route path="loan">
               <Route path="list" element={<ParentLoanList />} />
+              <Route path="judge" element={<CheckContract />} />
             </Route>
           </Route>
           <Route path="/child" element={<Layout />}>
