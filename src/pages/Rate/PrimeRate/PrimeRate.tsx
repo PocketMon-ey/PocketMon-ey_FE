@@ -1,6 +1,7 @@
 import React from 'react';
 import { RateParagraph, StyledTextFiled } from '../styled';
 import { TitleHeader } from '../../../components/feature';
+import { BigButton } from '../../../components/common';
 
 const PrimeRate = () => {
   return (
@@ -12,6 +13,7 @@ const PrimeRate = () => {
         <br />
         <StyledTextFiled placeholder="2"></StyledTextFiled>%
       </RateParagraph>
+      <BigButton text="완료" />
     </div>
   );
 };

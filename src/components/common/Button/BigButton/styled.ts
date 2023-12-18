@@ -31,6 +31,8 @@ export const BigButtonContainer = styled.div<Props>`
         return theme.colors.primary_purple;
       case '조정하기':
         return theme.colors.primary_blue;
+      case '완료':
+        return theme.colors.primary_purple;
     }
   }};
 
@@ -52,6 +54,8 @@ export const BigButtonContainer = styled.div<Props>`
         return '100%';
       case '조정하기':
         return '45%';
+      case '완료':
+        return '100%';
     }
   }};
 
