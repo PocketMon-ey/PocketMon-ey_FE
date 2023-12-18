@@ -1,11 +1,19 @@
 import React from 'react';
 import Header from '../Header/Header';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 const Layout = () => {
+  const path = useLocation().pathname;
+  let title: string = '';
+
+  if (path.includes('home')) {
+    title = '';
+  } else if (path.includes('list')) {
+    title = '대출 목록';
+  }
   return (
     <>
-      <Header headerTitle={'페이지 제목'} />
+      <Header headerTitle={title} />
       <Outlet />
     </>
   );

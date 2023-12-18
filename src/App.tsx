@@ -5,6 +5,12 @@ import { theme } from './styles';
 import GlobalStyles from './styles/GlobalStyles';
 import { Routes, Route } from 'react-router-dom';
 import ApplyLoan from './pages/loan/ApplyLoan';
+import { ParentLoanList } from './pages';
+import Layout from './components/common/Layout/Layout';
+import SelectPage from './pages/SelectPage/SelectPage';
+import ParentHome from './pages/Home/ParentHome/ParentHome';
+import ChildHome from './pages/Home/ChildHome/ChildHome';
+import ChildLoanList from './pages/ChildLoanList/ChildLoanList';
 
 function App() {
   return (
@@ -18,11 +24,21 @@ function App() {
       </BrowserView>
 
       <MobileView>
-        {/* 추후 라우팅.. */}
         <Routes>
-          {/* <Route path='/' element={<Layout />} >
-        <Route index element={<Main />} /> */}
-          <Route path="/child/loan/apply" element={<ApplyLoan />} />
+          <Route path="/" element={<SelectPage />} />
+          <Route path="/parent" element={<Layout />}>
+            <Route path="home" element={<ParentHome />} />
+            <Route path="loan">
+              <Route path="list" element={<ParentLoanList />} />
+            </Route>
+          </Route>
+          <Route path="/child" element={<Layout />}>
+            <Route path="home" element={<ChildHome />} />
+            <Route path="loan">
+              <Route path="list" element={<ChildLoanList />} />
+              <Route path="apply" element={<ApplyLoan />} />
+            </Route>
+          </Route>
         </Routes>
       </MobileView>
     </>
