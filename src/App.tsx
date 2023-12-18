@@ -11,7 +11,9 @@ import SelectPage from './pages/SelectPage/SelectPage';
 import ParentHome from './pages/Home/ParentHome/ParentHome';
 import ChildHome from './pages/Home/ChildHome/ChildHome';
 import ChildLoanList from './pages/ChildLoanList/ChildLoanList';
-import CheckContract from './pages/loan/\bCheckContract';
+import CheckContract from './pages/loan/CheckContract';
+import ParentReject from './pages/ParentReject/ParentReject';
+
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
             <Route path="loan">
               <Route path="list" element={<ParentLoanList />} />
               <Route path="judge" element={<CheckContract />} />
+              <Route path="reject" element={<ParentReject />} />
+
             </Route>
           </Route>
           <Route path="/child" element={<Layout />}>
