@@ -1,8 +1,8 @@
 import React from 'react';
 import { EditButtonContainer, RateHeader } from './styled';
-import { TitleHeader } from '../../components/feature';
-import { BigButton } from '../../components/common';
-import * as S from '../../components/feature/TitleHeader/styled';
+import { TitleHeader } from '../../../components/feature';
+import { BigButton } from '../../../components/common';
+import * as S from '../../../components/feature/TitleHeader/styled';
 import { useNavigate } from 'react-router-dom';
 
 const EditRate = () => {

@@ -12,7 +12,9 @@ import ParentHome from './pages/Home/ParentHome/ParentHome';
 import ChildHome from './pages/Home/ChildHome/ChildHome';
 import ChildLoanList from './pages/ChildLoanList/ChildLoanList';
 import ParentReject from './pages/ParentReject/ParentReject';
-import EditRate from './pages/EditRate/EditRate';
+import EditRate from './pages/Rate/EditRate/EditRate';
+import FamilyRate from './pages/Rate/FamilyRate/FamilyRate';
+import PrimeRate from './pages/Rate/PrimeRate/PrimeRate';
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
               <Route path="list" element={<ParentLoanList />} />
               <Route path="reject" element={<ParentReject />} />
               <Route path="rate" element={<EditRate />} />
+              <Route path="rate/family" element={<FamilyRate />} />
+              <Route path="rate/prime" element={<PrimeRate />} />
             </Route>
           </Route>
           <Route path="/child" element={<Layout />}>

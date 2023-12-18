@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { theme } from '../../styles';
-import * as S from '../../components/feature/TitleHeader/styled';
+import { theme } from '../../../styles';
+import * as S from '../../../components/feature/TitleHeader/styled';
 
 export const RateHeader = styled.div`
   display: inline-block;
