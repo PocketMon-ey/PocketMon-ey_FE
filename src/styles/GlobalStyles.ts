@@ -5,9 +5,16 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
    
   }
+  html{
+    min-height: 100vh;
+    min-width:100vw;
+  }
   body{
     background-color: #F9F9FB;
     padding:30px;
+    position:relative;
+    min-height: 100vh;
+    min-width:100vw;
   }
 
   &::-webkit-scrollbar-track {
