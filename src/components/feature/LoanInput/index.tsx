@@ -1,6 +1,7 @@
 import * as S from './styled';
 
-const LoanInput = () => {
-  return <S.StyledTextFiled placeholder={'예) 아이유 콘서트에 가고 싶어요.'} />;
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> {}
+const LoanInput = (props: Props) => {
+  return <S.StyledTextFiled {...props} />;
 };
 export default LoanInput;

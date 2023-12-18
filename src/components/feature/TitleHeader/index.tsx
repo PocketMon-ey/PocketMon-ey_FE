@@ -7,11 +7,13 @@ type Props = {
 
 const TitleHeader = ({ title, firstS, secondS }: Props) => {
   return (
-    <S.StyledBackground>
-      <S.StyledTitle>{title}</S.StyledTitle>
-      <S.StyledFirstSentence>{firstS}</S.StyledFirstSentence>
-      <S.StyledSecondSentence>{secondS}</S.StyledSecondSentence>
-    </S.StyledBackground>
+    <S.StyledContainer>
+      <S.StyledBackground>
+        <S.StyledTitle>{title}</S.StyledTitle>
+        <S.StyledFirstSentence>{firstS}</S.StyledFirstSentence>
+        <S.StyledSecondSentence>{secondS}</S.StyledSecondSentence>
+      </S.StyledBackground>
+    </S.StyledContainer>
   );
 };
 export default TitleHeader;

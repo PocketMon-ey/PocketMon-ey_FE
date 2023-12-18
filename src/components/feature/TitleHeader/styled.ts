@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { theme } from '../../../styles';
 
+export const StyledContainer = styled.section`
+  height: 166px;
+`;
 export const StyledBackground = styled.section`
   height: 166px;
   width: 100vw;
