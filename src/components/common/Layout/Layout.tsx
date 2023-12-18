@@ -10,6 +10,8 @@ const Layout = () => {
     title = '';
   } else if (path.includes('list')) {
     title = '대출 목록';
+  } else if (path.includes('apply') || path.includes('checkContract')) {
+    title = '대출 신청';
   }
   return (
     <>

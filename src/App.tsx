@@ -11,6 +11,7 @@ import SelectPage from './pages/SelectPage/SelectPage';
 import ParentHome from './pages/Home/ParentHome/ParentHome';
 import ChildHome from './pages/Home/ChildHome/ChildHome';
 import ChildLoanList from './pages/ChildLoanList/ChildLoanList';
+import CheckContract from './pages/loan/\bCheckContract';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path="loan">
               <Route path="list" element={<ChildLoanList />} />
               <Route path="apply" element={<ApplyLoan />} />
+              <Route path="checkContract" element={<CheckContract />} />
             </Route>
           </Route>
         </Routes>
