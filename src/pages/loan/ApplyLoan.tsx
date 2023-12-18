@@ -2,8 +2,10 @@ import styled from 'styled-components';
 import { BigButton, Header } from '../../components/common';
 import { LoanInput, TitleHeader } from '../../components/feature';
 import { theme } from '../../styles';
+import { loanApplyStore } from '../../store/loanApplyStore';
 
 const ApplyLoan = () => {
+  const { reason, amount, changeValue } = loanApplyStore();
   return (
     <>
       <Header headerTitle={'대출 신청'} />
@@ -14,7 +16,12 @@ const ApplyLoan = () => {
       />
       <StyledInputSection>
         <span>사유</span>
-        <LoanInput placeholder="예) 아이유 콘서트에 가고 싶어요." />
+        <LoanInput
+          id="reason"
+          placeholder="예) 아이유 콘서트에 가고 싶어요."
+          value={reason}
+          onChange={(e) => changeValue('reason', e.currentTarget.value)}
+        />
         <StyledTip>
           tip: 스스로 납득이 가능한 대출 사유인지 생각해보세요.
         </StyledTip>
@@ -22,7 +29,13 @@ const ApplyLoan = () => {
       <StyledInputSection>
         <span>금액</span>
         <div>
-          <LoanInput type="number" placeholder="예) 99,900" />
+          <LoanInput
+            id="amount"
+            type="number"
+            placeholder="예) 99,900"
+            value={amount}
+            onChange={(e) => changeValue('amount', e.currentTarget.value)}
+          />
           <span>원</span>
         </div>
       </StyledInputSection>
