@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BigButton, Header } from '../../components/common';
+import { BigButton } from '../../components/common';
 import { LoanInput, TitleHeader } from '../../components/feature';
 import { theme } from '../../styles';
 import { loanApplyStore } from '../../store/loanApplyStore';
@@ -48,7 +48,7 @@ const ApplyLoan = () => {
     </>
   );
 };
-const StyledButtonBottom = styled.div`
+export const StyledButtonBottom = styled.div`
   position: absolute;
   bottom: 30px;
   padding: 0;

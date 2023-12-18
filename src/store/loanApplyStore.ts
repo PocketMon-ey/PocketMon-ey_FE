@@ -7,8 +7,8 @@ export interface LoanApplyData {
 }
 
 const initialState: LoanApplyData = {
-  reason: '',
-  amount: '',
+  reason: '월급 빨리 받고싶어요.',
+  amount: '99,900',
 };
 
 export interface LoanApplyStore extends LoanApplyData {
