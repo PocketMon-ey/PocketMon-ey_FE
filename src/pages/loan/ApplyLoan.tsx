@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BigButton, Header } from '../../components/common';
+import { BigButton } from '../../components/common';
 import { LoanInput, TitleHeader } from '../../components/feature';
 import { theme } from '../../styles';
 import { loanApplyStore } from '../../store/loanApplyStore';
@@ -8,7 +8,6 @@ const ApplyLoan = () => {
   const { reason, amount, changeValue } = loanApplyStore();
   return (
     <>
-      <Header headerTitle={'대출 신청'} />
       <TitleHeader
         title="대출을 신청해볼까요?"
         firstS="대출사유와 함께 금액을 설정해주세요."
@@ -20,7 +19,9 @@ const ApplyLoan = () => {
           id="reason"
           placeholder="예) 아이유 콘서트에 가고 싶어요."
           value={reason}
-          onChange={(e) => changeValue('reason', e.currentTarget.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            changeValue('reason', e.currentTarget.value)
+          }
         />
         <StyledTip>
           tip: 스스로 납득이 가능한 대출 사유인지 생각해보세요.
@@ -34,7 +35,9 @@ const ApplyLoan = () => {
             type="number"
             placeholder="예) 99,900"
             value={amount}
-            onChange={(e) => changeValue('amount', e.currentTarget.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              changeValue('amount', e.currentTarget.value)
+            }
           />
           <span>원</span>
         </div>
@@ -45,7 +48,7 @@ const ApplyLoan = () => {
     </>
   );
 };
-const StyledButtonBottom = styled.div`
+export const StyledButtonBottom = styled.div`
   position: absolute;
   bottom: 30px;
   padding: 0;
