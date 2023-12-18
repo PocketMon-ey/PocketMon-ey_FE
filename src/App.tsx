@@ -6,6 +6,9 @@ import GlobalStyles from './styles/GlobalStyles';
 import { Routes, Route } from 'react-router-dom';
 import { ParentLoanList } from './pages';
 import Layout from './components/common/Layout/Layout';
+import SelectPage from './pages/SelectPage/SelectPage';
+import ParentHome from './pages/ParentHome/ParentHome';
+import ChildHome from './pages/ChildHome/ChildHome';
 
 function App() {
   return (
@@ -18,8 +21,13 @@ function App() {
       </BrowserView>
       <MobileView>
         <Routes>
+          <Route path="/" element={<SelectPage />} />
           <Route path="/parent" element={<Layout />}>
+            <Route path="home" element={<ParentHome />} />
             <Route path="loan" element={<ParentLoanList />} />
+          </Route>
+          <Route path="/child" element={<Layout />}>
+            <Route path="home" element={<ChildHome />} />
           </Route>
         </Routes>
       </MobileView>
