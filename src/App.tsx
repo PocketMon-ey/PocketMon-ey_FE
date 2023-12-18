@@ -9,6 +9,7 @@ import Layout from './components/common/Layout/Layout';
 import SelectPage from './pages/SelectPage/SelectPage';
 import ParentHome from './pages/Home/ParentHome/ParentHome';
 import ChildHome from './pages/Home/ChildHome/ChildHome';
+import ChildLoanList from './pages/ChildLoanList/ChildLoanList';
 
 function App() {
   return (
@@ -30,7 +31,9 @@ function App() {
           </Route>
           <Route path="/child" element={<Layout />}>
             <Route path="home" element={<ChildHome />} />
-            <Route path="loan"></Route>
+            <Route path="loan">
+              <Route path="list" element={<ChildLoanList />} />
+            </Route>
           </Route>
         </Routes>
       </MobileView>
