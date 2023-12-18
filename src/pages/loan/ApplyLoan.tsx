@@ -15,11 +15,14 @@ const ApplyLoan = () => {
       <StyledInputSection>
         <span>사유</span>
         <LoanInput placeholder="예) 아이유 콘서트에 가고 싶어요." />
+        <StyledTip>
+          tip: 스스로 납득이 가능한 대출 사유인지 생각해보세요.
+        </StyledTip>
       </StyledInputSection>
       <StyledInputSection>
         <span>금액</span>
         <div>
-          <LoanInput placeholder="예) 99,900" />
+          <LoanInput type="number" placeholder="예) 99,900" />
           <span>원</span>
         </div>
       </StyledInputSection>
@@ -35,6 +38,16 @@ const StyledButtonBottom = styled.div`
   padding: 0;
   right: 30px;
   left: 30px;
+`;
+const StyledTip = styled.div`
+  display: inline-block;
+  color: ${theme.colors.primary_purple};
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-left: 5px;
+  margin-top: 10px;
 `;
 const StyledInputSection = styled.div`
   display: flex;
