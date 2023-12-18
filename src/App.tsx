@@ -11,6 +11,7 @@ import SelectPage from './pages/SelectPage/SelectPage';
 import ParentHome from './pages/Home/ParentHome/ParentHome';
 import ChildHome from './pages/Home/ChildHome/ChildHome';
 import ChildLoanList from './pages/ChildLoanList/ChildLoanList';
+import ParentReject from './pages/ParentReject/ParentReject';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="home" element={<ParentHome />} />
             <Route path="loan">
               <Route path="list" element={<ParentLoanList />} />
+              <Route path="reject" element={<ParentReject />} />
             </Route>
           </Route>
           <Route path="/child" element={<Layout />}>
