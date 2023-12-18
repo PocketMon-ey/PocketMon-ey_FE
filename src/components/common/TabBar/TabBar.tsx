@@ -2,12 +2,24 @@ import React from 'react';
 import { TabBarContainer } from './styled';
 import SmallButton from '../Button/SmallButton/SmallButton';
 
-const TabBar = () => {
+type Props = {
+  status: number;
+  setStatus: React.Dispatch<React.SetStateAction<number>>;
+};
+
+const TabBar = ({ status, setStatus }: Props) => {
   return (
     <TabBarContainer>
-      <SmallButton text="대기 중" selected={1} service="lo" />
-      <SmallButton text="진행 중" selected={0} service="lo" />
-      <SmallButton text="완료" selected={0} service="lo" />
+      {['대기 중', '진행 중', '완료'].map((tabName, index) => (
+        <SmallButton
+          key={tabName}
+          text={tabName}
+          setStatus={setStatus}
+          service="lo"
+          selected={status === index ? 1 : 0}
+          tabIndex={index}
+        />
+      ))}
     </TabBarContainer>
   );
 };
