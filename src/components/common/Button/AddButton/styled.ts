@@ -13,7 +13,7 @@ export const AddContainer = styled.div`
 `;
 
 export const Add = styled.div`
-  font-size: 20px;
+  font-size: 30px;
   color: ${theme.colors.white};
 `;
 
