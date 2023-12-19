@@ -44,10 +44,6 @@ const CheckContract = () => {
 
 export default CheckContract;
 
-const StyledFlexContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 export const StyledButtonFlexContainer = styled.div`
   display: flex;
   justify-content: space-between;

@@ -2,13 +2,14 @@ import { styled } from 'styled-components';
 import { TitleHeader } from '../../components/feature';
 import { theme } from '../../styles';
 import type { RadioChangeEvent } from 'antd';
-import { Radio, Space } from 'antd';
+import { Radio, ConfigProvider } from 'antd';
 import { useState } from 'react';
 import { StyledDetail } from '../../components/feature/ContentBackground/styled';
 import { BigButton } from '../../components/common';
+import { StyledButtonBottom } from './ApplyLoan';
 
 const ActualPayment = () => {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(3);
 
   const onChange = (e: RadioChangeEvent) => {
     console.log('radio checked', e.target.value);
@@ -22,15 +23,54 @@ const ActualPayment = () => {
         secondS="납입금액 확인 후, 적절한 기간을 선택해주세요."
       />
       <StyledBackground>
-        <StyledRadio>
-          <Radio.Group onChange={onChange} value={value}>
-            <Space direction="vertical">
-              <Radio value={1}>Option A</Radio>
-              <Radio value={2}>Option B</Radio>
-              <Radio value={3}>Option C</Radio>
-            </Space>
+        <ConfigProvider
+          theme={{
+            components: {
+              Radio: {
+                colorPrimary: `${theme.colors.primary_purple}`,
+                borderRadius: 2,
+                radioSize: 20,
+              },
+            },
+          }}
+        >
+          <Radio.Group size="large" onChange={onChange} value={value}>
+            <StyledFlexContainer>
+              <StyledSelectItem>
+                {/* <span
+                  style={{
+                    display: 'inline-block',
+                    width: `${22}px`,
+                  }}
+                ></span> */}
+                <span id="category">개월</span>
+                <span id="category">월 납입금액</span>
+                <span id="category">총 납입금액</span>
+              </StyledSelectItem>
+              <Radio id="1" value={1}>
+                <StyledSelectItem>
+                  <span>1개월</span>
+                  <span>{'99,000'}원</span>
+                  <span>{'99,000'}원</span>
+                </StyledSelectItem>
+              </Radio>
+              <Radio id="3" value={3} defaultChecked>
+                <StyledSelectItem>
+                  <span>3개월</span>
+                  <span>{'33,400'}원</span>
+                  <span>{'100,200'}원</span>
+                </StyledSelectItem>
+              </Radio>
+              <Radio id="6" value={6}>
+                <StyledSelectItem>
+                  <span>6개월</span>
+                  <span>{'16,000'}원</span>
+                  <span>{'101,400'}원</span>
+                </StyledSelectItem>
+              </Radio>
+            </StyledFlexContainer>
           </Radio.Group>
-        </StyledRadio>
+        </ConfigProvider>
         <StyledDetailInformation>
           <span>
             {'김지훈'}님의 현재 대출금리는 {3}% 입니다.
@@ -41,11 +81,39 @@ const ActualPayment = () => {
         </StyledDetailInformation>
       </StyledBackground>
 
-      <BigButton text="다음" />
+      <StyledButtonBottom>
+        <BigButton text="다음" />
+      </StyledButtonBottom>
     </>
   );
 };
 export default ActualPayment;
+const StyledFlexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+`;
+const StyledSelectItem = styled.div`
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  margin-left: 10px;
+  & > span#category {
+    color: ${theme.colors.black};
+    font-size: 20px;
+    font-weight: 700;
+  }
+  & > span {
+    color: ${theme.colors.gray_004};
+    font-size: 20px;
+    font-weight: 700;
+    display: inline-block;
+  }
+`;
 const StyledDetailInformation = styled(StyledDetail)`
   justify-content: center;
   align-items: center;
@@ -62,27 +130,7 @@ const StyledDetailInformation = styled(StyledDetail)`
     font-weight: 400;
   }
 `;
-const StyledRadio = styled.div`
-  span::after {
-    border: 1px solid ${theme.colors.primary_purple};
-  }
-  .ant-radio-checke::before {
-    border: 1px solid ${theme.colors.primary_purple};
-    border-color: ${theme.colors.primary_purple};
-    background-color: ${theme.colors.white};
-  }
-  .ant-radio-checked .ant-radio-inner {
-    border-color: ${theme.colors.primary_purple};
-    background-color: ${theme.colors.primary_purple};
-  }
-  .ant-wave-target {
-    border-color: ${theme.colors.primary_purple};
-    background-color: ${theme.colors.primary_purple};
-  }
-  .ant-radio-checked::after {
-    border: none;
-  }
-`;
+
 const StyledBackground = styled.section`
   height: fit-content;
   width: 100vw;
