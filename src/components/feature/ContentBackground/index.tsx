@@ -35,20 +35,24 @@ const ContentBackground = () => {
           <span>월 납입금액</span>
           <span>{'33,400'}원</span>
         </StyledDetailItem>
-        <StyledDetailItem>
-          <span>시작일</span>
-          <span>{'2023.12.15'}</span>
-        </StyledDetailItem>
-        {path !== '/child/loan/checkContract' && (
+        {path === '/parent/loan/ongoing' && (
+          <StyledDetailItem>
+            <span>시작일</span>
+            <span>{'2023.12.15'}</span>
+          </StyledDetailItem>
+        )}
+        {path === '/parent/loan/ongoing' && (
           <StyledDetailItem>
             <span>마감일</span>
             <span>{'2023.03.15'}</span>
           </StyledDetailItem>
         )}
-        <StyledDetailItem>
-          <span>납입일</span>
-          <span>매달 {15}일</span>
-        </StyledDetailItem>
+        {path === '/parent/loan/ongoing' && (
+          <StyledDetailItem>
+            <span>납입일</span>
+            <span>매달 {15}일</span>
+          </StyledDetailItem>
+        )}
       </S.StyledDetail>
     </S.StyledBackground>
   );

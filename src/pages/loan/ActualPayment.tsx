@@ -2,11 +2,10 @@ import { styled } from 'styled-components';
 import { TitleHeader } from '../../components/feature';
 import { theme } from '../../styles';
 import type { RadioChangeEvent } from 'antd';
-import { Input, Radio, Space } from 'antd';
+import { Radio, Space } from 'antd';
 import { useState } from 'react';
 import { StyledDetail } from '../../components/feature/ContentBackground/styled';
 import { BigButton } from '../../components/common';
-import { StyledButtonFlexContainer } from './CheckContract';
 
 const ActualPayment = () => {
   const [value, setValue] = useState(1);

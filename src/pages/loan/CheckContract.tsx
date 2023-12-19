@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { BigButton } from '../../components/common';
 import { ContentBackground, TitleHeader } from '../../components/feature';
 import { styled } from 'styled-components';
+import { StyledButtonBottom } from './ApplyLoan';
 
 const CheckContract = () => {
   const path = useLocation().pathname;
@@ -28,15 +29,15 @@ const CheckContract = () => {
           firstS="아래의 사항으로 대출이 진행중입니다."
         />
       )}
-      <StyledFlexContainer>
-        <ContentBackground />
+      <ContentBackground />
+      <StyledButtonBottom>
         {path === '/child/loan/checkContract' && <BigButton text="다음" />}
         {path === '/parent/loan/judge' && (
           <StyledButtonFlexContainer>
             <BigButton text="승인" /> <BigButton text="반려" />
           </StyledButtonFlexContainer>
         )}
-      </StyledFlexContainer>
+      </StyledButtonBottom>
     </>
   );
 };
