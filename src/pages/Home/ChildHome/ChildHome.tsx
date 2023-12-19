@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import {
   CardGridContainer,
   HomeCardContainer,
@@ -12,6 +12,8 @@ import Title from '../../../assets/images/title.png';
 
 const ChildHome = () => {
   const navigate = useNavigate();
+
+  // '/user/{userId}'에 요청 후 데이터 useState
   return (
     <div>
       <HomeTitleContainer>

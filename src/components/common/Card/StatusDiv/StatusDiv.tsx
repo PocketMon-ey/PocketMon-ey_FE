@@ -3,7 +3,7 @@ import { StatusContainer, StatusDivContainer } from './styled';
 import { theme } from '../../../../styles';
 
 type Props = {
-  status: number;
+  status: string;
 };
 const StatusDiv = ({ status }: Props) => {
   return (

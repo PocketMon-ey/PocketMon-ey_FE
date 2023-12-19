@@ -14,9 +14,18 @@ type Props = {
 
 const Header = ({ headerTitle }: Props) => {
   const navigate = useNavigate();
+  const path = useLocation().pathname;
   return (
     <HeaderContainer>
-      <div onClick={() => navigate(-1)}>
+      <div
+        onClick={() => {
+          if (path.includes('home')) {
+            navigate('/');
+          } else {
+            navigate(-1);
+          }
+        }}
+      >
         <ImageContainer src={LeftArrow} alt="뒤로가기" />
       </div>
       <HeaderTitleContainer>{headerTitle}</HeaderTitleContainer>
