@@ -2,14 +2,11 @@ import { styled } from 'styled-components';
 import * as S from './styled';
 import { theme } from '../../../styles';
 import { loanApplyStore } from '../../../store/loanApplyStore';
-type Props = {
-  title: string;
-  firstS: string;
-  secondS: string;
-};
+import { useLocation } from 'react-router-dom';
 
 const ContentBackground = () => {
-  const { reason, amount, changeValue } = loanApplyStore();
+  const { reason, amount } = loanApplyStore();
+  const path = useLocation().pathname;
   return (
     <S.StyledBackground>
       <StyledIntro>
@@ -23,40 +20,34 @@ const ContentBackground = () => {
           <span>120,000원</span>
         </StyledDetailItem>
         <StyledDetailItem>
-          <span>총 상환금액</span>
-          <span>120,000원</span>
+          <span>대출원금</span>
+          <span>{amount}원</span>
         </StyledDetailItem>
         <StyledDetailItem>
-          <span>총 상환금액</span>
-          <span>120,000원</span>
+          <span>대출금리</span>
+          <span>{2}%</span>
         </StyledDetailItem>
         <StyledDetailItem>
-          <span>총 상환금액</span>
-          <span>120,000원</span>
+          <span>대출기간</span>
+          <span>{3}개월</span>
         </StyledDetailItem>
         <StyledDetailItem>
-          <span>총 상환금액</span>
-          <span>120,000원</span>
+          <span>매달 납입금액</span>
+          <span>{'33,400'}원</span>
         </StyledDetailItem>
         <StyledDetailItem>
-          <span>총 상환금액</span>
-          <span>120,000원</span>
+          <span>시작일</span>
+          <span>{'2023.12.15'}</span>
         </StyledDetailItem>
+        {path !== '/child/loan/checkContract' && (
+          <StyledDetailItem>
+            <span>마감일</span>
+            <span>{'2023.03.15'}</span>
+          </StyledDetailItem>
+        )}
         <StyledDetailItem>
-          <span>총 상환금액</span>
-          <span>120,000원</span>
-        </StyledDetailItem>
-        <StyledDetailItem>
-          <span>총 상환금액</span>
-          <span>120,000원</span>
-        </StyledDetailItem>
-        <StyledDetailItem>
-          <span>총 상환금액</span>
-          <span>120,000원</span>
-        </StyledDetailItem>
-        <StyledDetailItem>
-          <span>총 상환금액</span>
-          <span>120,000원</span>
+          <span>납입일</span>
+          <span>매달 {15}일</span>
         </StyledDetailItem>
       </S.StyledDetail>
     </S.StyledBackground>
