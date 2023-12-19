@@ -17,7 +17,6 @@ import EditRate from './pages/Rate/EditRate/EditRate';
 import FamilyRate from './pages/Rate/FamilyRate/FamilyRate';
 import PrimeRate from './pages/Rate/PrimeRate/PrimeRate';
 
-
 function App() {
   return (
     <>
