@@ -4,8 +4,10 @@ import { BalanceContainer, NextSendAlarm, ProgressBackground } from './styled';
 import { theme } from '../../styles';
 import { Progress } from 'antd';
 import { BigButton } from '../../components/common';
+import { useLocation } from 'react-router-dom';
 
 const ChildLoanDetail = () => {
+  const path = useLocation().pathname;
   return (
     <>
       <ProgressBackground>
@@ -23,7 +25,7 @@ const ChildLoanDetail = () => {
         </div>
       </ProgressBackground>
       <ContentBackground></ContentBackground>
-      <BigButton text="납입" />
+      {path.includes('child') ? <BigButton text="납입" /> : <></>}
     </>
   );
 };
