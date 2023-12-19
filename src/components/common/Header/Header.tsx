@@ -13,7 +13,6 @@ type Props = {
 };
 
 const Header = ({ headerTitle }: Props) => {
-  const path = useLocation().pathname;
   const navigate = useNavigate();
   return (
     <HeaderContainer>

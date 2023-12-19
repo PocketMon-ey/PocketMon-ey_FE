@@ -17,7 +17,7 @@ const CardGrid = ({ loanList }: Props) => {
       {/* loanList 받으면 map으로 뿌려주면 끝*/}
       {/* {loanList.map((loan) => <Card />)} */}
       <div onClick={() => navigate(baseUrl)}>
-        <Card />
+        <Card></Card>
       </div>
       <div onClick={() => navigate(baseUrl)}>
         <Card />
