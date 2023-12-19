@@ -40,7 +40,7 @@ function App() {
                 <Route path="judge" element={<CheckContract />} />
                 <Route path="ongoing" element={<CheckContract />} />
                 <Route path="reject" element={<ParentReject />} />
-                <Route path="detail" element={<LoanDetail />} />
+                <Route path="detail/:loanId" element={<LoanDetail />} />
                 <Route path="rate" element={<EditRate />} />
                 <Route path="rate/family" element={<FamilyRate />} />
                 <Route path="rate/prime" element={<PrimeRate />} />
@@ -52,7 +52,7 @@ function App() {
                 <Route path="list" element={<LoanList />} />
                 <Route path="apply" element={<ApplyLoan />} />
                 <Route path="checkContract" element={<CheckContract />} />
-                <Route path="detail" element={<LoanDetail />} />
+                <Route path="detail/:loanId" element={<LoanDetail />} />
               </Route>
             </Route>
             <Route path="/ready" element={<Ready />} />

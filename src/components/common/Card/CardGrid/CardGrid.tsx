@@ -20,6 +20,7 @@ const CardGrid = ({ status }: { status: number }) => {
     <CardGridContainer>
       {list.map((loan: Loan) => (
         <Card
+          key={loan.id}
           id={loan.id}
           reason={loan.reason}
           price={loan.price}

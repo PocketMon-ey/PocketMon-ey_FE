@@ -21,7 +21,7 @@ const Card = ({ id, reason, price, startDate, status }: Props) => {
   return (
     <CardContainer
       onClick={() => {
-        navigate(baseUrl);
+        navigate(`${baseUrl}/${id}`);
       }}
     >
       <CardHeader status={status} startDate={startDate} />
