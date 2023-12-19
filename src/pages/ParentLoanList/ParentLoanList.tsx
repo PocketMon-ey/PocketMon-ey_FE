@@ -8,7 +8,7 @@ const ParentLoanList = () => {
 
   return (
     <div>
-      <UserTab />
+      <UserTab></UserTab>
       <TabBar status={status} setStatus={setStatus} />
       <CardGrid loanList={[]} />
     </div>

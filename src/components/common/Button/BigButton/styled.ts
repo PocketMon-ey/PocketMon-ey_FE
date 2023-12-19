@@ -29,6 +29,10 @@ export const BigButtonContainer = styled.div<Props>`
         return theme.colors.primary_purple;
       case '등록':
         return theme.colors.primary_purple;
+      case '조정하기':
+        return theme.colors.primary_blue;
+      case '완료':
+        return theme.colors.primary_purple;
     }
   }};
 
@@ -47,6 +51,10 @@ export const BigButtonContainer = styled.div<Props>`
       case '취소':
         return '100%';
       case '등록':
+        return '100%';
+      case '조정하기':
+        return '45%';
+      case '완료':
         return '100%';
     }
   }};

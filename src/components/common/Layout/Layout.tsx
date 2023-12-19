@@ -10,6 +10,12 @@ const Layout = () => {
     title = '';
   } else if (path.includes('list')) {
     title = '대출 목록';
+  } else if (path.includes('prime')) {
+    title = '우대금리 설정';
+  } else if (path.includes('family')) {
+    title = '가족금리 설정';
+  } else if (path.includes('rate')) {
+    title = '금리 조정';
   } else if (path.includes('apply') || path.includes('checkContract')) {
     title = '대출 신청';
   } else if (path.includes('parent/loan/judge')) {

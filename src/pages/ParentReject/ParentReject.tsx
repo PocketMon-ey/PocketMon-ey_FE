@@ -1,5 +1,4 @@
-import React, { useRef, useState } from 'react';
-import { TitleHeader } from '../../components/feature';
+import React, { useRef } from 'react';
 import {
   RejectHeader,
   RejectImageContainer,
