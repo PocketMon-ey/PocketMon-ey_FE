@@ -8,7 +8,6 @@ const CheckContract = () => {
 
   return (
     <>
-
       {path === '/child/loan/checkContract' && (
         <TitleHeader
           title="계약서를 확인해보세요"
@@ -48,7 +47,7 @@ const StyledFlexContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const StyledButtonFlexContainer = styled.div`
+export const StyledButtonFlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
