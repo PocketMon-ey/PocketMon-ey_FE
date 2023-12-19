@@ -2,12 +2,30 @@ import React from 'react';
 import { CardContainer } from './styled';
 import CardHeader from './CardHeader/CardHeader';
 import CardContent from './CardContent/CardContent';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const Card = () => {
+type Props = {
+  id: number;
+  reason: string;
+  price: number;
+  startDate: string;
+  status: number;
+};
+
+const Card = ({ id, reason, price, startDate, status }: Props) => {
+  const path = useLocation().pathname;
+  const baseUrl = path.includes('parent')
+    ? '/parent/loan/detail'
+    : '/child/loan/detail';
+  const navigate = useNavigate();
   return (
-    <CardContainer>
-      <CardHeader status={0} startDate="2023/12/15" />
-      <CardContent reason="아이유 콘서트에 가고.." totalPrice={99000} />
+    <CardContainer
+      onClick={() => {
+        navigate(baseUrl);
+      }}
+    >
+      <CardHeader status={status} startDate={startDate} />
+      <CardContent reason={reason} totalPrice={price} />
     </CardContainer>
   );
 };

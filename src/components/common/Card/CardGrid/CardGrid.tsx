@@ -1,30 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { CardGridContainer } from './styled';
 import Card from '../Card';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { LoanListContext } from '../../../../context/context';
 
-type Props = {
-  loanList: object[]; // 이후 추가적으로 타입 설정해야함!!
+type Loan = {
+  id: number;
+  reason: string;
+  price: number;
+  startDate: string;
+  status: number;
 };
-const CardGrid = ({ loanList }: Props) => {
-  const navigate = useNavigate();
-  const path = useLocation().pathname;
-  const baseUrl = path.includes('parent')
-    ? '/parent/loan/detail'
-    : '/child/loan/detail';
+
+const CardGrid = ({ status }: { status: number }) => {
+  const list = useContext(LoanListContext).filter(
+    (loan: Loan) => loan.status === status,
+  );
   return (
     <CardGridContainer>
-      {/* loanList 받으면 map으로 뿌려주면 끝*/}
-      {/* {loanList.map((loan) => <Card />)} */}
-      <div onClick={() => navigate(baseUrl)}>
-        <Card></Card>
-      </div>
-      <div onClick={() => navigate(baseUrl)}>
-        <Card />
-      </div>
-      <div onClick={() => navigate(baseUrl)}>
-        <Card />
-      </div>
+      {list.map((loan: Loan) => (
+        <Card
+          id={loan.id}
+          reason={loan.reason}
+          price={loan.price}
+          startDate={loan.startDate}
+          status={loan.status}
+        />
+      ))}
     </CardGridContainer>
   );
 };
