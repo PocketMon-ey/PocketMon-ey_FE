@@ -22,21 +22,23 @@ export const StyledTitle = styled.span`
   margin-left: 30px;
   margin-top: 25px;
 `;
+export const StyledFlexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 15px;
+`;
 export const StyledFirstSentence = styled.span`
   display: inline-block;
-  margin-top: 10px;
   color: ${theme.colors.gray_004};
   font-size: 18px;
   font-weight: 400;
-  margin-top: 10px;
   margin-left: 30px;
 `;
 export const StyledSecondSentence = styled.span`
   display: inline-block;
-  margin-top: 10px;
   color: ${theme.colors.gray_004};
   font-size: 18px;
   font-weight: 400;
-  margin-top: 7px;
   margin-left: 30px;
 `;

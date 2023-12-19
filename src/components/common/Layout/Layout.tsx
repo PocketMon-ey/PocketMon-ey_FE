@@ -20,6 +20,8 @@ const Layout = () => {
     title = '대출 신청';
   } else if (path.includes('parent/loan/judge')) {
     title = '대출 심사';
+  } else if (path.includes('parent/loan/ongoing')) {
+    title = '대출 상세';
   }
   return (
     <>
