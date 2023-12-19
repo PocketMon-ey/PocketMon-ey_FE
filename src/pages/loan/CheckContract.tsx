@@ -8,6 +8,7 @@ const CheckContract = () => {
 
   return (
     <>
+
       {path === '/child/loan/checkContract' && (
         <TitleHeader
           title="계약서를 확인해보세요"

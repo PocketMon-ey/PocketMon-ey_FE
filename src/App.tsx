@@ -16,6 +16,8 @@ import ParentReject from './pages/ParentReject/ParentReject';
 import EditRate from './pages/Rate/EditRate/EditRate';
 import FamilyRate from './pages/Rate/FamilyRate/FamilyRate';
 import PrimeRate from './pages/Rate/PrimeRate/PrimeRate';
+import LoanDetail from './pages/LoanDetail/LoanDetail';
+
 
 function App() {
   return (
@@ -38,6 +40,7 @@ function App() {
               <Route path="judge" element={<CheckContract />} />
               <Route path="ongoing" element={<CheckContract />} />
               <Route path="reject" element={<ParentReject />} />
+              <Route path="detail" element={<LoanDetail />} />
               <Route path="rate" element={<EditRate />} />
               <Route path="rate/family" element={<FamilyRate />} />
               <Route path="rate/prime" element={<PrimeRate />} />
@@ -49,6 +52,7 @@ function App() {
               <Route path="list" element={<ChildLoanList />} />
               <Route path="apply" element={<ApplyLoan />} />
               <Route path="checkContract" element={<CheckContract />} />
+              <Route path="detail" element={<LoanDetail />} />
             </Route>
           </Route>
         </Routes>
