@@ -17,7 +17,7 @@ import EditRate from './pages/Rate/EditRate/EditRate';
 import FamilyRate from './pages/Rate/FamilyRate/FamilyRate';
 import PrimeRate from './pages/Rate/PrimeRate/PrimeRate';
 import LoanDetail from './pages/LoanDetail/LoanDetail';
-
+import ActualPayment from './pages/loan/ActualPayment';
 
 function App() {
   return (
@@ -51,6 +51,7 @@ function App() {
             <Route path="loan">
               <Route path="list" element={<ChildLoanList />} />
               <Route path="apply" element={<ApplyLoan />} />
+              <Route path="actualPayment" element={<ActualPayment />} />
               <Route path="checkContract" element={<CheckContract />} />
               <Route path="detail" element={<LoanDetail />} />
             </Route>

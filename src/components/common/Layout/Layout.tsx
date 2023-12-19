@@ -16,15 +16,19 @@ const Layout = () => {
     title = '가족금리 설정';
   } else if (path.includes('rate')) {
     title = '금리 조정';
-  } else if (path.includes('apply') || path.includes('checkContract')) {
+  } else if (
+    path.includes('apply') ||
+    path.includes('checkContract') ||
+    path.includes('actualPayment')
+  ) {
     title = '대출 신청';
   } else if (path.includes('parent/loan/judge')) {
     title = '대출 심사';
-  } else if (path.includes('parent/loan/ongoing')||path.includes('detail')) {
+  } else if (path.includes('parent/loan/ongoing') || path.includes('detail')) {
     title = '대출 상세';
   } else if (path.includes('reject')) {
     title = '대출 반려';
-  } 
+  }
   return (
     <>
       <Header headerTitle={title} />

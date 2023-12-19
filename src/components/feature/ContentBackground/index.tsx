@@ -16,7 +16,7 @@ const ContentBackground = () => {
       </StyledIntro>
       <S.StyledDetail>
         <StyledDetailItem>
-          <span>총 상환금액</span>
+          <span>총 납입금액</span>
           <span>120,000원</span>
         </StyledDetailItem>
         <StyledDetailItem>
@@ -32,7 +32,7 @@ const ContentBackground = () => {
           <span>{3}개월</span>
         </StyledDetailItem>
         <StyledDetailItem>
-          <span>매달 납입금액</span>
+          <span>월 납입금액</span>
           <span>{'33,400'}원</span>
         </StyledDetailItem>
         <StyledDetailItem>
