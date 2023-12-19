@@ -17,13 +17,13 @@ import EditRate from './pages/Rate/EditRate/EditRate';
 import FamilyRate from './pages/Rate/FamilyRate/FamilyRate';
 import PrimeRate from './pages/Rate/PrimeRate/PrimeRate';
 import LoanDetail from './pages/LoanDetail/LoanDetail';
+import Ready from './pages/Ready/Ready';
 
 
 function App() {
   return (
     <>
       <GlobalStyles />
-
       <BrowserView>
         <span style={{ color: theme.colors.primary_purple }}>
           데스크탑에서는 지원하지 않는 서비스입니다.
@@ -55,6 +55,7 @@ function App() {
               <Route path="detail" element={<LoanDetail />} />
             </Route>
           </Route>
+          <Route path="/ready" element={<Ready />} />
         </Routes>
       </MobileView>
     </>

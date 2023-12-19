@@ -23,14 +23,14 @@ const ChildHome = () => {
         </MainTitleContainer>
       </HomeTitleContainer>
       <CardGridContainer>
-        <HomeCardContainer onClick={() => navigate('/child/send')} id={1}>
+        <HomeCardContainer onClick={() => navigate('/ready')} id={1}>
           <MainTitleContainer>송금</MainTitleContainer>
           <SubTitleContainer>
             # 대출 갚기 <br /> # 송금
           </SubTitleContainer>
         </HomeCardContainer>
 
-        <HomeCardContainer id={2} onClick={() => navigate('/child/mission')}>
+        <HomeCardContainer id={2} onClick={() => navigate('/ready')}>
           <MainTitleContainer>미션</MainTitleContainer>
           <SubTitleContainer>
             # 심부름 <br /> # 목표
@@ -43,7 +43,7 @@ const ChildHome = () => {
             <br /> # 급한 돈
           </SubTitleContainer>
         </HomeCardContainer>
-        <HomeCardContainer id={4} onClick={() => navigate('/quiz')}>
+        <HomeCardContainer id={4} onClick={() => navigate('/ready')}>
           <MainTitleContainer>오늘의 퀴즈</MainTitleContainer>
           <SubTitleContainer>
             # 아침 10시
