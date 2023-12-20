@@ -3,7 +3,7 @@ import { BigButton } from '../../components/common';
 import { LoanInput, TitleHeader } from '../../components/feature';
 import { theme } from '../../styles';
 import { loanApplyStore } from '../../store/loanApplyStore';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { LoanItem, getLoan } from '../../core/api/loan/useLoanGet';
 
 const ApplyLoan = () => {
