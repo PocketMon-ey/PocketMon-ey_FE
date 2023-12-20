@@ -5,14 +5,14 @@ import { loanApplyStore } from '../../../store/loanApplyStore';
 import { useLocation } from 'react-router-dom';
 
 const ContentBackground = () => {
-  const { reason, amount } = loanApplyStore();
+  const { reason, price } = loanApplyStore();
   const path = useLocation().pathname;
   return (
     <S.StyledBackground>
       <StyledIntro>
         <span>상세</span>
         <p>{reason}</p>
-        <p id="amount">{amount}원</p>
+        <p id="amount">{price}원</p>
       </StyledIntro>
       <S.StyledDetail>
         <StyledDetailItem>
@@ -21,7 +21,7 @@ const ContentBackground = () => {
         </StyledDetailItem>
         <StyledDetailItem>
           <span>대출원금</span>
-          <span>{amount}원</span>
+          <span>{price}원</span>
         </StyledDetailItem>
         <StyledDetailItem>
           <span>대출금리</span>
@@ -35,19 +35,19 @@ const ContentBackground = () => {
           <span>월 납입금액</span>
           <span>{'33,400'}원</span>
         </StyledDetailItem>
-        {path === '/parent/loan/ongoing' && (
+        {(path.includes('ongoing') || path.includes('detail')) && (
           <StyledDetailItem>
             <span>시작일</span>
             <span>{'2023.12.15'}</span>
           </StyledDetailItem>
         )}
-        {path === '/parent/loan/ongoing' && (
+        {(path.includes('ongoing') || path.includes('detail')) && (
           <StyledDetailItem>
             <span>마감일</span>
             <span>{'2023.03.15'}</span>
           </StyledDetailItem>
         )}
-        {path === '/parent/loan/ongoing' && (
+        {(path.includes('ongoing') || path.includes('detail')) && (
           <StyledDetailItem>
             <span>납입일</span>
             <span>매달 {15}일</span>

@@ -4,10 +4,12 @@ import { BrowserView, MobileView } from 'react-device-detect';
 import { theme } from './styles';
 import GlobalStyles from './styles/GlobalStyles';
 import { Routes, Route } from 'react-router-dom';
+import ApplyLoan from './pages/Loan/ApplyLoan';
 import Layout from './components/common/Layout/Layout';
 import SelectPage from './pages/SelectPage/SelectPage';
 import ParentHome from './pages/Home/ParentHome/ParentHome';
 import ChildHome from './pages/Home/ChildHome/ChildHome';
+import CheckContract from './pages/Loan/CheckContract';
 import ParentReject from './pages/ParentReject/ParentReject';
 import EditRate from './pages/Rate/EditRate/EditRate';
 import FamilyRate from './pages/Rate/FamilyRate/FamilyRate';
@@ -17,8 +19,7 @@ import ActualPayment from './pages/Loan/ActualPayment';
 import Ready from './pages/Ready/Ready';
 import { GlobalContextProvider } from './context/context';
 import LoanList from './pages/LoanList/LoanList';
-import CheckContract from './pages/Loan/CheckContract';
-import ApplyLoan from './pages/Loan/ApplyLoan';
+
 
 function App() {
   return (
@@ -38,8 +39,8 @@ function App() {
               <Route path="home" element={<ParentHome />} />
               <Route path="loan">
                 <Route path="list" element={<LoanList />} />
-                <Route path="judge" element={<CheckContract />} />
-                <Route path="ongoing" element={<CheckContract />} />
+                <Route path="judge/:loanId" element={<CheckContract />} />
+                <Route path="ongoing/:loanId" element={<CheckContract />} />
                 <Route path="reject" element={<ParentReject />} />
                 <Route path="detail/:loanId" element={<LoanDetail />} />
                 <Route path="rate" element={<EditRate />} />

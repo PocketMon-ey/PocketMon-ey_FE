@@ -3,9 +3,13 @@ import { BigButton } from '../../components/common';
 import { LoanInput, TitleHeader } from '../../components/feature';
 import { theme } from '../../styles';
 import { loanApplyStore } from '../../store/loanApplyStore';
+import { useEffect, useState } from 'react';
+import { LoanItem, getLoan } from '../../core/api/loan/useLoanGet';
 
 const ApplyLoan = () => {
-  const { reason, amount, changeValue } = loanApplyStore();
+  const { reason, price, changeValue } = loanApplyStore();
+  const [data, setData] = useState<LoanItem[]>();
+
   return (
     <>
       <TitleHeader
@@ -34,7 +38,7 @@ const ApplyLoan = () => {
             id="amount"
             type="number"
             placeholder="예) 99,900"
-            value={amount}
+            value={price}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               changeValue('amount', e.currentTarget.value)
             }
