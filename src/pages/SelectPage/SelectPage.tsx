@@ -1,6 +1,8 @@
 import React from 'react';
 
-import Title from '../../assets/images/title.png';
+// import TitlePng from '../../assets/images/title.png';
+import TitleWebp from '../../../src/assets/images/title.webp';
+
 import {
   CardContainer,
   ChildCardContainer,
@@ -20,7 +22,7 @@ const SelectPage = () => {
       <TitleContainer>
         <SubTitleContainer>내 손안에 금융 도우미</SubTitleContainer>
         <MainTitleContainer>
-          <ImageContainer src={Title} alt="pocketmoney"></ImageContainer>
+          <ImageContainer src={TitleWebp} alt="pocketmoney"></ImageContainer>
         </MainTitleContainer>
       </TitleContainer>
       <CardContainer>

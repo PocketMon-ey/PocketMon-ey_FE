@@ -49,6 +49,7 @@ function App() {
                 <Route path="rate/family" element={<FamilyRate />} />
                 <Route path="rate/prime" element={<PrimeRate />} />
               </Route>
+              <Route path="ready" element={<Ready />} />
             </Route>
             <Route path="/child" element={<Layout />}>
               <Route path="home" element={<ChildHome />} />
@@ -59,8 +60,8 @@ function App() {
                 <Route path="checkContract" element={<CheckContract />} />
                 <Route path="detail/:loanId" element={<LoanDetail />} />
               </Route>
+              <Route path="ready" element={<Ready />} />
             </Route>
-            <Route path="/ready" element={<Ready />} />
           </Routes>
         </GlobalContextProvider>
       </MobileView>
