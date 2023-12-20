@@ -7,8 +7,8 @@ import { Routes, Route } from 'react-router-dom';
 import ApplyLoan from './pages/Loan/ApplyLoan';
 import Layout from './components/common/Layout/Layout';
 import SelectPage from './pages/SelectPage/SelectPage';
-import ParentHome from './pages/Home/ParentHome/ParentHome';
-import ChildHome from './pages/Home/ChildHome/ChildHome';
+import ParentHome from './pages/ParentHome/ParentHome';
+import ChildHome from './pages/ChildHome/ChildHome';
 import CheckContract from './pages/Loan/CheckContract';
 import ParentReject from './pages/ParentReject/ParentReject';
 import EditRate from './pages/Rate/EditRate/EditRate';
@@ -19,7 +19,6 @@ import ActualPayment from './pages/Loan/ActualPayment';
 import Ready from './pages/Ready/Ready';
 import { GlobalContextProvider } from './context/context';
 import LoanList from './pages/LoanList/LoanList';
-
 
 function App() {
   return (

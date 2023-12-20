@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ReadyJPG from '../../../src/assets/images/ready.jpg';
+// import ReadyJPG from '../../../src/assets/images/ready.jpg';
 import { TitleHeader } from '../../components/feature';
 
 const Ready = () => {
@@ -14,7 +14,12 @@ const Ready = () => {
           alignItems: 'center',
         }}
       >
-        <img src={ReadyJPG} alt="준비중 이미지" width="220px" height="200px" />
+        <img
+          src={process.env.PUBLIC_URL + 'images/ready.jpg'}
+          alt="준비중 이미지"
+          width="220px"
+          height="200px"
+        />
       </div>
     </>
   );

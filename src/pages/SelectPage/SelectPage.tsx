@@ -1,7 +1,7 @@
 import React from 'react';
 
 // import TitlePng from '../../assets/images/title.png';
-import TitleJPG from '../../../src/assets/images/title.jpg';
+// import TitleJPG from '../../assets/images/title.jpg';
 
 import {
   CardContainer,
@@ -22,7 +22,10 @@ const SelectPage = () => {
       <TitleContainer>
         <SubTitleContainer>내 손안에 금융 도우미</SubTitleContainer>
         <MainTitleContainer>
-          <ImageContainer src={TitleJPG} alt="pocketmoney"></ImageContainer>
+          <ImageContainer
+            src={process.env.PUBLIC_URL + 'images/title.jpg'}
+            alt="pocketmoney"
+          ></ImageContainer>
         </MainTitleContainer>
       </TitleContainer>
       <CardContainer>
