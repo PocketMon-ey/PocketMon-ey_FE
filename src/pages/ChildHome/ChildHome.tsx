@@ -19,7 +19,7 @@ const ChildHome = () => {
       <HomeTitleContainer>
         <MainTitleContainer>
           <HomeImageContainer
-            src={process.env.PUBLIC_URL + 'images/title.jpg'}
+            src={process.env.PUBLIC_URL + './images/title.jpg'}
             alt="pocketmoney"
           ></HomeImageContainer>
         </MainTitleContainer>

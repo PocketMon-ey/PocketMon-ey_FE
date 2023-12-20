@@ -23,7 +23,7 @@ const SelectPage = () => {
         <SubTitleContainer>내 손안에 금융 도우미</SubTitleContainer>
         <MainTitleContainer>
           <ImageContainer
-            src={process.env.PUBLIC_URL + 'images/title.jpg'}
+            src={process.env.PUBLIC_URL + './images/title.jpg'}
             alt="pocketmoney"
           ></ImageContainer>
         </MainTitleContainer>
