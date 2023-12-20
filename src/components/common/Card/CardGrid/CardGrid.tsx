@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { CardGridContainer } from './styled';
 import Card from '../Card';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { LoanListContext } from '../../../../context/context';
 
 type Loan = {
