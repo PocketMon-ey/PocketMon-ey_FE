@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { StyledDetail } from '../../components/feature/ContentBackground/styled';
 import { BigButton } from '../../components/common';
 import { StyledButtonBottom } from './ApplyLoan';
+import { ReactComponent as Ccoli } from '../../assets/images/ccoli_recommend.svg';
 
 const ActualPayment = () => {
   const [value, setValue] = useState(3);
@@ -22,6 +23,7 @@ const ActualPayment = () => {
         firstS="대출 기간에 따라 이자가 변화합니다."
         secondS="납입금액 확인 후, 적절한 기간을 선택해주세요."
       />
+
       <StyledBackground>
         <ConfigProvider
           theme={{
@@ -36,12 +38,6 @@ const ActualPayment = () => {
         >
           <Radio.Group size="large" onChange={onChange} value={value}>
             <StyledFlexContainer>
-              {/* <span
-                style={{
-                  display: 'inline-block',
-                  width: `${18}px`,
-                }}
-              ></span> */}
               <StyledSelectItem id="category">
                 <span id="category">개월</span>
                 <span id="category">월 납입금액</span>
@@ -60,6 +56,7 @@ const ActualPayment = () => {
                   <span>{'33,400'}원</span>
                   <span>{'100,200'}원</span>
                 </StyledSelectItem>
+                <StyledCcoli />
               </Radio>
               <Radio id="6" value={6}>
                 <StyledSelectItem>
@@ -92,11 +89,15 @@ const StyledFlexContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 50px;
   margin-bottom: 60px;
   & > #category {
     margin-left: 28px;
   }
+`;
+const StyledCcoli = styled(Ccoli)`
+  position: absolute;
+  bottom: 55%;
 `;
 const StyledSelectItem = styled.div`
   font-size: 20px;
