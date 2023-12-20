@@ -4,8 +4,9 @@ import {
   HeaderTitleContainer,
   ImageContainer,
 } from './styled';
-import LeftArrow from '../../../assets/images/left-arrow.png';
-import Home from '../../../assets/images/home.png';
+
+// import LeftArrow from '../../../../public/images/left-arrow.png';
+// import Home from '../../../../public/images/home.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 type Props = {
@@ -26,7 +27,7 @@ const Header = ({ headerTitle }: Props) => {
           }
         }}
       >
-        <ImageContainer src={LeftArrow} alt="뒤로가기" />
+        <ImageContainer src="/images/left-arrow.png" alt="뒤로가기" />
       </div>
       <HeaderTitleContainer>{headerTitle}</HeaderTitleContainer>
       <div
@@ -34,7 +35,7 @@ const Header = ({ headerTitle }: Props) => {
           navigate('home');
         }}
       >
-        <ImageContainer src={Home}></ImageContainer>
+        <ImageContainer src="/images/home.png"></ImageContainer>
       </div>
     </HeaderContainer>
   );

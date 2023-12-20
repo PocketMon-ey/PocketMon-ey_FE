@@ -1,13 +1,11 @@
 import React from 'react';
 
-import ReadyImage from '../../assets/images/Ready.png';
+// import ReadyWebp from '../../../public/images/Ready.webp';
 import { TitleHeader } from '../../components/feature';
-import { Header } from '../../components/common';
 
 const Ready = () => {
   return (
     <>
-      <Header headerTitle="" />
       <TitleHeader title="준비중입니다.." firstS="" secondS=""></TitleHeader>
       <div
         style={{
@@ -17,10 +15,12 @@ const Ready = () => {
         }}
       >
         <img
-          src={ReadyImage}
+          src="/images/Ready.webp"
           alt="준비중 이미지"
-          width="330px"
-          height="300px"
+          width="220px"
+          height="200px"
+          decoding="async"
+          loading="lazy"
         />
       </div>
     </>

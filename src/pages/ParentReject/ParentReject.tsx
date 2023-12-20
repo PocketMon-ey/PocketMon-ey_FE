@@ -9,8 +9,8 @@ import {
   TopButton,
   TopButtonContainer,
 } from './styled';
-import UpArrow from '../../assets/images/up-arrow.png';
-import CollyReject from '../../assets/images/colly_reject.png';
+// import UpArrow from '../../../public/images/up-arrow.png';
+// import CollyReject from '../../../public/images/colly_reject.png';
 import { RejectImage } from './styled';
 import { BigButton } from '../../components/common';
 const ParentReject = () => {
@@ -22,7 +22,7 @@ const ParentReject = () => {
         <br /> 왜 반려하시나요?
       </RejectHeader>
       <RejectImageContainer>
-        <RejectImage src={CollyReject} alt="reject!!" />
+        <RejectImage src="/images/colly_reject.png" alt="reject!!" />
       </RejectImageContainer>
       <RejectReasonList>
         <RejectReasonContainer>과한 금액</RejectReasonContainer>
@@ -44,7 +44,7 @@ const ParentReject = () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
         >
-          <TopButton src={UpArrow}></TopButton>
+          <TopButton src="/images/up-arrow.png"></TopButton>
         </TopButtonContainer>
         <RejectTextFiled ref={rejectInput} />
         <BigButton text="전송"></BigButton>

@@ -8,7 +8,7 @@ import {
   SubTitleContainer,
 } from '../styled';
 import { useNavigate } from 'react-router-dom';
-import Title from '../../../assets/images/title.png';
+import TitleWebp from '../../../../public/images/title.webp';
 
 const ChildHome = () => {
   const navigate = useNavigate();
@@ -19,20 +19,20 @@ const ChildHome = () => {
       <HomeTitleContainer>
         <MainTitleContainer>
           <HomeImageContainer
-            src={Title}
+            src="/images/title.png"
             alt="pocketmoney"
           ></HomeImageContainer>
         </MainTitleContainer>
       </HomeTitleContainer>
       <CardGridContainer>
-        <HomeCardContainer onClick={() => navigate('/ready')} id={1}>
+        <HomeCardContainer onClick={() => navigate('/child/ready')} id={1}>
           <MainTitleContainer>송금</MainTitleContainer>
           <SubTitleContainer>
             # 대출 갚기 <br /> # 송금
           </SubTitleContainer>
         </HomeCardContainer>
 
-        <HomeCardContainer id={2} onClick={() => navigate('/ready')}>
+        <HomeCardContainer id={2} onClick={() => navigate('/child/ready')}>
           <MainTitleContainer>미션</MainTitleContainer>
           <SubTitleContainer>
             # 심부름 <br /> # 목표
@@ -45,7 +45,7 @@ const ChildHome = () => {
             <br /> # 급한 돈
           </SubTitleContainer>
         </HomeCardContainer>
-        <HomeCardContainer id={4} onClick={() => navigate('/ready')}>
+        <HomeCardContainer id={4} onClick={() => navigate('/child/ready')}>
           <MainTitleContainer>오늘의 퀴즈</MainTitleContainer>
           <SubTitleContainer>
             # 아침 10시
