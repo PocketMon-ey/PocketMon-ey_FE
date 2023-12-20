@@ -22,9 +22,9 @@ const Layout = () => {
     path.includes('actualPayment')
   ) {
     title = '대출 신청';
-  } else if (path.includes('parent/loan/judge')) {
+  } else if (path.includes('judge')) {
     title = '대출 심사';
-  } else if (path.includes('parent/loan/ongoing') || path.includes('detail')) {
+  } else if (path.includes('ongoing') || path.includes('detail')) {
     title = '대출 상세';
   } else if (path.includes('reject')) {
     title = '대출 반려';

@@ -3,16 +3,21 @@ import { devtools } from 'zustand/middleware';
 
 export interface LoanApplyData {
   reason: string;
-  amount: string;
+  price: number | undefined;
+  totalPrice: number;
+  period?: number;
+  loanInterest?: number;
+  pricePerMonth?: number;
 }
 
 const initialState: LoanApplyData = {
-  reason: '월급 빨리 받고싶어요.',
-  amount: '99,900',
+  reason: '',
+  price: undefined,
+  totalPrice: 0,
 };
 
 export interface LoanApplyStore extends LoanApplyData {
-  [index: string]: Function | Object;
+  [index: string]: number | undefined | Function | Object;
   changeValue: (inputId: string, inputValue: string) => void;
 }
 
