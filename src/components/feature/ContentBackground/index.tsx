@@ -35,19 +35,19 @@ const ContentBackground = () => {
           <span>월 납입금액</span>
           <span>{'33,400'}원</span>
         </StyledDetailItem>
-        {path === '/parent/loan/ongoing' && (
+        {(path.includes('ongoing') || path.includes('detail')) && (
           <StyledDetailItem>
             <span>시작일</span>
             <span>{'2023.12.15'}</span>
           </StyledDetailItem>
         )}
-        {path === '/parent/loan/ongoing' && (
+        {(path.includes('ongoing') || path.includes('detail')) && (
           <StyledDetailItem>
             <span>마감일</span>
             <span>{'2023.03.15'}</span>
           </StyledDetailItem>
         )}
-        {path === '/parent/loan/ongoing' && (
+        {(path.includes('ongoing') || path.includes('detail')) && (
           <StyledDetailItem>
             <span>납입일</span>
             <span>매달 {15}일</span>
