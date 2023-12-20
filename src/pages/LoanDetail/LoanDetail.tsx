@@ -4,10 +4,11 @@ import { BalanceContainer, NextSendAlarm, ProgressBackground } from './styled';
 import { theme } from '../../styles';
 import { Progress } from 'antd';
 import { BigButton } from '../../components/common';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 const ChildLoanDetail = () => {
   const path = useLocation().pathname;
+  const params = useParams();
   return (
     <>
       <ProgressBackground>

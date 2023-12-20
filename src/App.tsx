@@ -18,12 +18,15 @@ import FamilyRate from './pages/Rate/FamilyRate/FamilyRate';
 import PrimeRate from './pages/Rate/PrimeRate/PrimeRate';
 import LoanDetail from './pages/LoanDetail/LoanDetail';
 import ActualPayment from './pages/Loan/ActualPayment';
+import Ready from './pages/Ready/Ready';
+import { GlobalContextProvider } from './context/context';
+import LoanList from './pages/LoanList/LoanList';
+
 
 function App() {
   return (
     <>
       <GlobalStyles />
-
       <BrowserView>
         <span style={{ color: theme.colors.primary_purple }}>
           데스크탑에서는 지원하지 않는 서비스입니다.
@@ -31,32 +34,35 @@ function App() {
       </BrowserView>
 
       <MobileView>
-        <Routes>
-          <Route path="/" element={<SelectPage />} />
-          <Route path="/parent" element={<Layout />}>
-            <Route path="home" element={<ParentHome />} />
-            <Route path="loan">
-              <Route path="list" element={<ParentLoanList />} />
-              <Route path="judge" element={<CheckContract />} />
-              <Route path="ongoing" element={<CheckContract />} />
-              <Route path="reject" element={<ParentReject />} />
-              <Route path="detail" element={<LoanDetail />} />
-              <Route path="rate" element={<EditRate />} />
-              <Route path="rate/family" element={<FamilyRate />} />
-              <Route path="rate/prime" element={<PrimeRate />} />
+        <GlobalContextProvider>
+          <Routes>
+            <Route path="/" element={<SelectPage />} />
+            <Route path="/parent" element={<Layout />}>
+              <Route path="home" element={<ParentHome />} />
+              <Route path="loan">
+                <Route path="list" element={<LoanList />} />
+                <Route path="judge" element={<CheckContract />} />
+                <Route path="ongoing" element={<CheckContract />} />
+                <Route path="reject" element={<ParentReject />} />
+                <Route path="detail/:loanId" element={<LoanDetail />} />
+                <Route path="rate" element={<EditRate />} />
+                <Route path="rate/family" element={<FamilyRate />} />
+                <Route path="rate/prime" element={<PrimeRate />} />
+              </Route>
             </Route>
-          </Route>
-          <Route path="/child" element={<Layout />}>
-            <Route path="home" element={<ChildHome />} />
-            <Route path="loan">
-              <Route path="list" element={<ChildLoanList />} />
-              <Route path="apply" element={<ApplyLoan />} />
-              <Route path="actualPayment" element={<ActualPayment />} />
-              <Route path="checkContract" element={<CheckContract />} />
-              <Route path="detail" element={<LoanDetail />} />
+            <Route path="/child" element={<Layout />}>
+              <Route path="home" element={<ChildHome />} />
+              <Route path="loan">
+                <Route path="list" element={<LoanList />} />
+                <Route path="apply" element={<ApplyLoan />} />
+                <Route path="actualPayment" element={<ActualPayment />} />
+                <Route path="checkContract" element={<CheckContract />} />
+                <Route path="detail/:loanId" element={<LoanDetail />} />
+              </Route>
             </Route>
-          </Route>
-        </Routes>
+            <Route path="/ready" element={<Ready />} />
+          </Routes>
+        </GlobalContextProvider>
       </MobileView>
     </>
   );
