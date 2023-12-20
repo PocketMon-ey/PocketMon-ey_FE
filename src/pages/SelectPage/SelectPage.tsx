@@ -23,7 +23,7 @@ const SelectPage = () => {
         <SubTitleContainer>내 손안에 금융 도우미</SubTitleContainer>
         <MainTitleContainer>
           <ImageContainer
-            src="/images/title.png"
+            src="/images/title.webp"
             alt="pocketmoney"
             decoding="async"
             loading="lazy"

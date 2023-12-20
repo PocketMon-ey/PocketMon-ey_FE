@@ -19,7 +19,7 @@ const ChildHome = () => {
       <HomeTitleContainer>
         <MainTitleContainer>
           <HomeImageContainer
-            src="/images/title.png"
+            src="/images/title.webp"
             alt="pocketmoney"
           ></HomeImageContainer>
         </MainTitleContainer>
