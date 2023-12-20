@@ -1,7 +1,7 @@
 import React from 'react';
 
 // import TitlePng from '../../assets/images/title.png';
-import TitleWebp from '../../../public/images/title.webp';
+import TitleWebp from '../../../src/assets/images/title.webp';
 
 import {
   CardContainer,
@@ -23,7 +23,7 @@ const SelectPage = () => {
         <SubTitleContainer>내 손안에 금융 도우미</SubTitleContainer>
         <MainTitleContainer>
           <ImageContainer
-            src="/images/title.webp"
+            src={TitleWebp}
             alt="pocketmoney"
             decoding="async"
             loading="lazy"

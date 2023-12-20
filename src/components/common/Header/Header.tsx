@@ -7,6 +7,8 @@ import {
 
 // import LeftArrow from '../../../../public/images/left-arrow.png';
 // import Home from '../../../../public/images/home.png';
+import LeftArrow from '../../../assets/images/left-arrow.png';
+import Home from '../../../assets/images/home.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 type Props = {
@@ -27,7 +29,7 @@ const Header = ({ headerTitle }: Props) => {
           }
         }}
       >
-        <ImageContainer src="/images/left-arrow.png" alt="뒤로가기" />
+        <ImageContainer src={LeftArrow} alt="뒤로가기" />
       </div>
       <HeaderTitleContainer>{headerTitle}</HeaderTitleContainer>
       <div
@@ -35,7 +37,7 @@ const Header = ({ headerTitle }: Props) => {
           navigate('home');
         }}
       >
-        <ImageContainer src="/images/home.png"></ImageContainer>
+        <ImageContainer src={Home}></ImageContainer>
       </div>
     </HeaderContainer>
   );

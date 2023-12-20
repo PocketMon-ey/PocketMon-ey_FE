@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import ReadyWebp from '../../../public/images/Ready.webp';
+import ReadyWebp from '../../../src/assets/images/Ready.webp';
 import { TitleHeader } from '../../components/feature';
 
 const Ready = () => {
@@ -15,7 +15,7 @@ const Ready = () => {
         }}
       >
         <img
-          src="/images/Ready.webp"
+          src={ReadyWebp}
           alt="준비중 이미지"
           width="220px"
           height="200px"

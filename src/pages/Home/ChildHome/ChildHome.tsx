@@ -8,7 +8,7 @@ import {
   SubTitleContainer,
 } from '../styled';
 import { useNavigate } from 'react-router-dom';
-import TitleWebp from '../../../../public/images/title.webp';
+import TitleWebp from '../../../assets/images/title.webp';
 
 const ChildHome = () => {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const ChildHome = () => {
       <HomeTitleContainer>
         <MainTitleContainer>
           <HomeImageContainer
-            src="/images/title.webp"
+            src={TitleWebp}
             alt="pocketmoney"
           ></HomeImageContainer>
         </MainTitleContainer>
