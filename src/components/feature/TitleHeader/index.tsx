@@ -9,7 +9,7 @@ const TitleHeader = ({ title, firstS, secondS }: Props) => {
   return (
     <S.StyledContainer>
       <S.StyledBackground>
-        <S.StyledTitle>{title}</S.StyledTitle>
+        <S.StyledTitle id="title">{title}</S.StyledTitle>
         <S.StyledFlexContainer>
           <S.StyledFirstSentence>{firstS}</S.StyledFirstSentence>
           <S.StyledSecondSentence>{secondS}</S.StyledSecondSentence>

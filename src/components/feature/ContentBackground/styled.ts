@@ -18,7 +18,7 @@ export const StyledDetail = styled.section`
   flex-direction: column;
   height: fit-content;
   width: 100%;
-  background-color: #f9f9fb;
+  background-color: ${theme.colors.primary_background};
   padding: 30px;
   border-radius: 20px;
   line-height: 200%;
