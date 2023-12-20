@@ -4,6 +4,9 @@ import {
   HeaderTitleContainer,
   ImageContainer,
 } from './styled';
+
+// import LeftArrow from '../../../../public/images/left-arrow.png';
+// import Home from '../../../../public/images/home.png';
 import LeftArrow from '../../../assets/images/left-arrow.png';
 import Home from '../../../assets/images/home.png';
 import { useLocation, useNavigate } from 'react-router-dom';

@@ -17,5 +17,7 @@
     "jsx": "react-jsx",
     "typeRoots": ["src/types"]
   },
-  "include": ["src", "src/styles", "../../pump-web/core/apis"]
+
+  "include": ["src", "src/styles", "public/images"]
+
 }

@@ -1,13 +1,11 @@
 import React from 'react';
 
-import ReadyImage from '../../assets/images/Ready.png';
+import ReadyWebp from '../../../src/assets/images/Ready.webp';
 import { TitleHeader } from '../../components/feature';
-import { Header } from '../../components/common';
 
 const Ready = () => {
   return (
     <>
-      <Header headerTitle="" />
       <TitleHeader title="준비중입니다.." firstS="" secondS=""></TitleHeader>
       <div
         style={{
@@ -16,12 +14,7 @@ const Ready = () => {
           alignItems: 'center',
         }}
       >
-        <img
-          src={ReadyImage}
-          alt="준비중 이미지"
-          width="330px"
-          height="300px"
-        />
+        <img src={ReadyWebp} alt="준비중 이미지" width="220px" height="200px" />
       </div>
     </>
   );
