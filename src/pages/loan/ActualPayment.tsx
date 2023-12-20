@@ -36,13 +36,13 @@ const ActualPayment = () => {
         >
           <Radio.Group size="large" onChange={onChange} value={value}>
             <StyledFlexContainer>
-              <StyledSelectItem>
-                {/* <span
-                  style={{
-                    display: 'inline-block',
-                    width: `${22}px`,
-                  }}
-                ></span> */}
+              {/* <span
+                style={{
+                  display: 'inline-block',
+                  width: `${18}px`,
+                }}
+              ></span> */}
+              <StyledSelectItem id="category">
                 <span id="category">개월</span>
                 <span id="category">월 납입금액</span>
                 <span id="category">총 납입금액</span>
@@ -92,8 +92,11 @@ const StyledFlexContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 40px;
+  gap: 40px;
+  margin-bottom: 60px;
+  & > #category {
+    margin-left: 28px;
+  }
 `;
 const StyledSelectItem = styled.div`
   font-size: 20px;
@@ -106,12 +109,14 @@ const StyledSelectItem = styled.div`
     color: ${theme.colors.black};
     font-size: 20px;
     font-weight: 700;
+    align-self: center;
   }
   & > span {
     color: ${theme.colors.gray_004};
     font-size: 20px;
     font-weight: 700;
     display: inline-block;
+    margin: 0;
   }
 `;
 const StyledDetailInformation = styled(StyledDetail)`
