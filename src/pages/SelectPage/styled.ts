@@ -36,7 +36,7 @@ export const TextContainer = styled.div`
 
 export const ImageContainer = styled.img`
   width: 300px;
-  height: 160px;
+  height: 120px;
   object-fit: fill;
 `;
 

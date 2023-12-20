@@ -52,6 +52,8 @@ const ApplyLoan = () => {
     </>
   );
 };
+export default ApplyLoan;
+
 export const StyledButtonBottom = styled.div`
   position: absolute;
   bottom: 30px;
@@ -96,4 +98,3 @@ const StyledInputSection = styled.div`
     }
   }
 `;
-export default ApplyLoan;

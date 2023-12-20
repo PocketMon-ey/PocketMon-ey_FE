@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pocketfe
+  labels:
+    app: pocketfe
+spec:
+  selector:
+    matchLabels:
+      app: pocketfe
+  replicas: 1
+  template:
+    metadata:
+      name: pocketfe
+      labels:
+        app: pocketfe
+    spec:
+      containers:
+        - name: pocketfe
+          image: docker.io/htogether7/pocket_fe:latest
+          imagePullPolicy: Always
+          ports:
+            - name: port1
+              containerPort: 8081
+          resources:
+            requests:
+              cpu: 500m
+              memory: 512Mi
+            limits:
+              cpu: 500m
+              memory: 1024Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pocketfe
+spec:
+  type: ClusterIP
+  selector:
+    app: pocketfe
+  ports:
+    - name: pocketfe
+      port: 8080
+      targetPort: 80
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pocketfe
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/ssl-redirect: 'false'
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: pocketfe.165.192.105.60.nip.io
+      http:
+        paths:
+          - path: /(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: pocketfe
+                port:
+                  number: 8080
