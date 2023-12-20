@@ -13,12 +13,12 @@ import EditRate from './pages/Rate/EditRate/EditRate';
 import FamilyRate from './pages/Rate/FamilyRate/FamilyRate';
 import PrimeRate from './pages/Rate/PrimeRate/PrimeRate';
 import LoanDetail from './pages/LoanDetail/LoanDetail';
+import ActualPayment from './pages/Loan/ActualPayment';
 import Ready from './pages/Ready/Ready';
 import { GlobalContextProvider } from './context/context';
 import LoanList from './pages/LoanList/LoanList';
-import ActualPayment from './pages/loan/ActualPayment';
-import ApplyLoan from './pages/loan/ApplyLoan';
-import CheckContract from './pages/loan/CheckContract';
+import CheckContract from './pages/Loan/CheckContract';
+import ApplyLoan from './pages/Loan/ApplyLoan';
 
 function App() {
   return (
