@@ -14,14 +14,7 @@ const Ready = () => {
           alignItems: 'center',
         }}
       >
-        <img
-          src={ReadyWebp}
-          alt="준비중 이미지"
-          width="220px"
-          height="200px"
-          decoding="async"
-          loading="lazy"
-        />
+        <img src={ReadyWebp} alt="준비중 이미지" width="220px" height="200px" />
       </div>
     </>
   );
