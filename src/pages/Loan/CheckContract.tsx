@@ -3,9 +3,9 @@ import { BigButton, Header } from '../../components/common';
 import { ContentBackground, TitleHeader } from '../../components/feature';
 import { styled } from 'styled-components';
 import { StyledButtonBottom } from './ApplyLoan';
-import { userServiceAxiosInstance } from '../../core/api/axios';
 import { postLoan } from '../../core/api/loan/useLoanPost';
 import { loanApplyStore } from '../../store/loanApplyStore';
+import { loanServiceAxiosInstance } from '../../core/api/axios';
 
 const CheckContract = () => {
   const path = useLocation().pathname;
@@ -19,6 +19,7 @@ const CheckContract = () => {
     pricePerMonth,
     totalPrice,
   } = loanApplyStore();
+
   return (
     <>
       <Header headerTitle="대출 심사" />
@@ -63,7 +64,26 @@ const CheckContract = () => {
         )}
         {path.includes('judge') && (
           <StyledButtonFlexContainer>
-            <BigButton text="승인" /> <BigButton text="반려" />
+            <BigButton
+              text="승인"
+              onClick={async () =>
+                await loanServiceAxiosInstance
+                  .put('/loan/approve', {
+                    loanId: +path.split('/')[4],
+                  })
+                  .then((res) => {
+                    if (res.status === 200) {
+                      alert('승인 완료!');
+                    }
+                  })
+              }
+            />{' '}
+            <BigButton
+              text="반려"
+              onClick={() =>
+                navigate(`/parent/loan/reject/${path.split('/')[4]}`)
+              }
+            />
           </StyledButtonFlexContainer>
         )}
       </StyledButtonBottom>

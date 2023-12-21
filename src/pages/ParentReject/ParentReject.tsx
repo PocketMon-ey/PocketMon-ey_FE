@@ -15,8 +15,12 @@ import { RejectImage } from './styled';
 import { BigButton, Header } from '../../components/common';
 import CollyReject from '../../components/common/CollyReject/CollyReject';
 import UpArrow from '../../components/common/UpArrow/UpArrow';
+import { loanServiceAxiosInstance } from '../../core/api/axios';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const ParentReject = () => {
+  const path = useLocation().pathname;
+  const navigate = useNavigate();
   return (
     <>
       <Header headerTitle=""></Header>
@@ -29,10 +33,74 @@ const ParentReject = () => {
           <CollyReject />
         </RejectImageContainer>
         <RejectReasonList>
-          <RejectReasonContainer>과한 금액</RejectReasonContainer>
-          <RejectReasonContainer>신청 사유 미흡</RejectReasonContainer>
-          <RejectReasonContainer>채무 부담</RejectReasonContainer>
-          <RejectReasonContainer>낮은 신용도</RejectReasonContainer>
+          <RejectReasonContainer
+            onClick={async () => {
+              await loanServiceAxiosInstance
+                .put('/loan/refuse', {
+                  loanId: path.split('/')[4],
+                  rejectionReason: '과한 금액',
+                })
+                .then((res) => {
+                  if (res.status === 200) {
+                    alert('반려 사유가 과한 금액으로 전송되었습니다.');
+                    navigate('/parent/loan/list');
+                  }
+                });
+            }}
+          >
+            과한 금액
+          </RejectReasonContainer>
+          <RejectReasonContainer
+            onClick={async () => {
+              await loanServiceAxiosInstance
+                .put('/loan/refuse', {
+                  loanId: path.split('/')[4],
+                  rejectionReason: '신청 사유 미흡',
+                })
+                .then((res) => {
+                  if (res.status === 200) {
+                    alert('반려 사유가 신청 사유 미흡으로 전송되었습니다.');
+                    navigate('/parent/loan/list');
+                  }
+                });
+            }}
+          >
+            신청 사유 미흡
+          </RejectReasonContainer>
+          <RejectReasonContainer
+            onClick={async () => {
+              await loanServiceAxiosInstance
+                .put('/loan/refuse', {
+                  loanId: path.split('/')[4],
+                  rejectionReason: '채무 부담',
+                })
+                .then((res) => {
+                  if (res.status === 200) {
+                    alert('반려 사유가 채무 부담으로 전송되었습니다.');
+                    navigate('/parent/loan/list');
+                  }
+                });
+            }}
+          >
+            채무 부담
+          </RejectReasonContainer>
+          <RejectReasonContainer
+            onClick={async () => {
+              await loanServiceAxiosInstance
+                .put('/loan/refuse', {
+                  loanId: path.split('/')[4],
+                  rejectionReason: '낮은 신용도',
+                })
+                .then((res) => {
+                  if (res.status === 200) {
+                    alert('반려 사유가 낮은 신용도로 전송되었습니다.');
+                    navigate('/parent/loan/list');
+                  }
+                });
+            }}
+          >
+            낮은 신용도
+          </RejectReasonContainer>
           <div
             onClick={() => {
               window.scrollTo({ top: 1000, behavior: 'smooth' });
