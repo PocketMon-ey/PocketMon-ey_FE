@@ -7,3 +7,5 @@ export const putPrimeRate = async (inputValue: number) => {
   });
   return data;
 };
+
+export const fetchPrimeRate = () => userServiceAxiosInstance.get(`/user/PIR/2`);

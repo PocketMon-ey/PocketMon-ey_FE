@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { theme } from '../../styles';
+import { RefObject } from 'react';
 
 export const RejectHeader = styled.div`
   display: inline-block;

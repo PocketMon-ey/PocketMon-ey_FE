@@ -14,14 +14,20 @@ type Props = {
 
 const Card = ({ id, reason, price, startDate, status }: Props) => {
   const path = useLocation().pathname;
-  const baseUrl = path.includes('parent')
-    ? '/parent/loan/detail'
-    : '/child/loan/detail';
+  const baseUrl = path.includes('parent') ? '/parent/loan' : '/child/loan';
   const navigate = useNavigate();
   return (
     <CardContainer
       onClick={() => {
-        navigate(`${baseUrl}/${id}`);
+        if (status === 0) {
+          if (path.includes('parent')) {
+            navigate(`${baseUrl}/judge/${id}`);
+          } else {
+            navigate(`${baseUrl}/checkContract/${id}`);
+          }
+        } else if (status === 1) {
+          navigate(`${baseUrl}/detail/${id}`);
+        }
       }}
     >
       <CardHeader status={status} startDate={startDate} />
