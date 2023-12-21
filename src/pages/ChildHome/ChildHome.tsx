@@ -8,6 +8,7 @@ import {
   SubTitleContainer,
 } from '../styled';
 import { useNavigate } from 'react-router-dom';
+import Title from '../../components/common/Title/Title';
 // import TitleWebp from '../../../assets/images/title.webp';
 // import TitleJPG from '../../assets/images/title.jpg';
 const ChildHome = () => {
@@ -18,10 +19,7 @@ const ChildHome = () => {
     <div>
       <HomeTitleContainer>
         <MainTitleContainer>
-          <HomeImageContainer
-            src={process.env.PUBLIC_URL + './images/title.jpg'}
-            alt="pocketmoney"
-          ></HomeImageContainer>
+          <Title />
         </MainTitleContainer>
       </HomeTitleContainer>
       <CardGridContainer>

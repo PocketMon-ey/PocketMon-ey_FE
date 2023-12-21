@@ -8,6 +8,7 @@ import {
   SubTitleContainer,
 } from '../styled';
 import { useNavigate } from 'react-router-dom';
+import Title from '../../components/common/Title/Title';
 
 const ParentHome = () => {
   const navigate = useNavigate();
@@ -15,10 +16,7 @@ const ParentHome = () => {
     <div>
       <HomeTitleContainer>
         <MainTitleContainer>
-          <HomeImageContainer
-            src={process.env.PUBLIC_URL + './images/title.jpg'}
-            alt="pocketmoney"
-          ></HomeImageContainer>
+          <Title />
         </MainTitleContainer>
       </HomeTitleContainer>
       <CardGridContainer>

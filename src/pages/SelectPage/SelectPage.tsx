@@ -14,6 +14,7 @@ import {
   TitleContainer,
 } from './styled';
 import { useNavigate } from 'react-router-dom';
+import Title from '../../components/common/Title/Title';
 
 const SelectPage = () => {
   const navigate = useNavigate();
@@ -22,10 +23,7 @@ const SelectPage = () => {
       <TitleContainer>
         <SubTitleContainer>내 손안에 금융 도우미</SubTitleContainer>
         <MainTitleContainer>
-          <ImageContainer
-            src={process.env.PUBLIC_URL + './images/title.jpg'}
-            alt="pocketmoney"
-          ></ImageContainer>
+          <Title />
         </MainTitleContainer>
       </TitleContainer>
       <CardContainer>
