@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AddButton, TabBar, UserTab } from '../../components/common';
+import { AddButton, Header, TabBar, UserTab } from '../../components/common';
 import CardGrid from '../../components/common/Card/CardGrid/CardGrid';
 import { AddButtonContainer } from './styled';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -10,6 +10,7 @@ const LoanList = () => {
   const path = useLocation().pathname;
   return (
     <div>
+      <Header headerTitle="대출 목록" />
       <UserTab />
       <TabBar status={status} setStatus={setStatus} />
       <CardGrid status={status} />

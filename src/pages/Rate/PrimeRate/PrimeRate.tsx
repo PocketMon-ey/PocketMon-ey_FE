@@ -5,11 +5,12 @@ import {
   RateTitle,
   StyledTextFiled,
 } from '../styled';
-import { BigButton } from '../../../components/common';
+import { BigButton, Header } from '../../../components/common';
 
 const PrimeRate = () => {
   return (
     <>
+      <Header headerTitle="금리 조정" />
       <div>
         <RateHeader>
           <RateTitle>김지훈(아이)의</RateTitle>
