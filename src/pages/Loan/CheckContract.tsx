@@ -1,12 +1,24 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { BigButton, Header } from '../../components/common';
 import { ContentBackground, TitleHeader } from '../../components/feature';
 import { styled } from 'styled-components';
 import { StyledButtonBottom } from './ApplyLoan';
+import { userServiceAxiosInstance } from '../../core/api/axios';
+import { postLoan } from '../../core/api/loan/useLoanPost';
+import { loanApplyStore } from '../../store/loanApplyStore';
 
 const CheckContract = () => {
   const path = useLocation().pathname;
-
+  const navigate = useNavigate();
+  const {
+    reason,
+    price,
+    loanInterest,
+    period,
+    changeValue,
+    pricePerMonth,
+    totalPrice,
+  } = loanApplyStore();
   return (
     <>
       <Header headerTitle="대출 심사" />
@@ -32,7 +44,23 @@ const CheckContract = () => {
       )}
       <ContentBackground />
       <StyledButtonBottom>
-        {path.includes('checkContract') && <BigButton text="다음" />}
+        {path.includes('checkContract') && (
+          <BigButton
+            text="다음"
+            onClick={async () => {
+              await postLoan({
+                childId: 3,
+                loanInterest: loanInterest,
+                period: period,
+                price: price,
+                pricePerMonth: pricePerMonth,
+                reason: reason,
+                totalPrice: totalPrice,
+              });
+              navigate('/child/loan/list');
+            }}
+          />
+        )}
         {path.includes('judge') && (
           <StyledButtonFlexContainer>
             <BigButton text="승인" /> <BigButton text="반려" />

@@ -3,12 +3,17 @@ import { BigButton, Header } from '../../components/common';
 import { LoanInput, TitleHeader } from '../../components/feature';
 import { theme } from '../../styles';
 import { loanApplyStore } from '../../store/loanApplyStore';
-import { useState } from 'react';
+import { HtmlHTMLAttributes, useEffect, useState } from 'react';
 import { LoanItem, getLoan } from '../../core/api/loan/useLoanGet';
+import { postLoan } from '../../core/api/loan/useLoanPost';
+import { useNavigate } from 'react-router-dom';
+import { useLoanService } from '../../core/loanService';
 
 const ApplyLoan = () => {
   const { reason, price, changeValue } = loanApplyStore();
-  const [data, setData] = useState<LoanItem[]>();
+  const { addComma, submitLoanApply } = useLoanService();
+  const navigate = useNavigate();
+  const [addCommaValue, setAddCommaValue] = useState(price);
 
   return (
     <>
@@ -39,15 +44,15 @@ const ApplyLoan = () => {
             id="amount"
             type="number"
             placeholder="예) 99,900"
-            value={price}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              changeValue('amount', e.currentTarget.value)
-            }
+            value={price !== 0 ? price : ''}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              changeValue('price', Number(e.currentTarget.value));
+            }}
           />
           <span>원</span>
         </div>
       </StyledInputSection>
-      <StyledButtonBottom>
+      <StyledButtonBottom onClick={() => navigate('/child/loan/actualPayment')}>
         <BigButton text="다음" />
       </StyledButtonBottom>
     </>

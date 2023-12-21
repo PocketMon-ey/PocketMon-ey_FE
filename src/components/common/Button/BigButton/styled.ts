@@ -5,7 +5,7 @@ type Props = {
   type: string;
 };
 
-export const BigButtonContainer = styled.div<Props>`
+export const BigButtonContainer = styled.button<Props>`
   display: flex;
   align-items: center;
   justify-content: center;

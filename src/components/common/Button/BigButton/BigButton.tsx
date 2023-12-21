@@ -3,11 +3,11 @@ import { BigButtonContainer } from './styled';
 
 type Props = {
   text: string;
-};
+} & React.ComponentProps<'button'>;
 
-const Button = ({ text }: Props) => {
+const Button = ({ text, ...props }: Props) => {
   return (
-    <BigButtonContainer type={text}>
+    <BigButtonContainer {...props} type={text}>
       <div>{text}</div>
     </BigButtonContainer>
   );
