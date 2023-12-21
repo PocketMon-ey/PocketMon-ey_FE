@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { theme } from '../../styles';
+type Props = { ref: React.MutableRefObject<HTMLInputElement | undefined> };
 
-export const StyledTextFiled = styled.input`
+export const StyledTextFiled = styled.input<Props>`
   width: 50px;
   min-height: 60px;
   padding-left: 20px;
