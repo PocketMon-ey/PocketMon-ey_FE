@@ -6,11 +6,23 @@ import {
   StyledTextFiled,
 } from '../styled';
 import { BigButton, Header } from '../../../components/common';
-import { putPrimeRate } from '../../../core/api/user/usePrimeRatePut';
+import {
+  fetchPrimeRate,
+  putPrimeRate,
+} from '../../../core/api/user/usePrimeRatePut';
+import { userServiceAxiosInstance } from '../../../core/api/axios';
+import { useQuery } from '@tanstack/react-query';
 
 const PrimeRate = () => {
   const [primeRate, setPrimeRate] = useState<string>('2');
   const primeRateInput = useRef<HTMLInputElement>();
+
+  const fetchFamilyRate = async () =>
+    await userServiceAxiosInstance.get(`/user/PIR/2`).then((res) => res.data);
+  const { data, isLoading, error } = useQuery({
+    queryKey: [`primerate`],
+    queryFn: () => fetchPrimeRate(),
+  });
 
   return (
     <>

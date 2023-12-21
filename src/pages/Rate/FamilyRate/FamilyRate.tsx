@@ -7,20 +7,31 @@ import {
 } from '../styled';
 import { BigButton, Header } from '../../../components/common';
 import { putFamilyRate } from '../../../core/api/user/useFamilyRatePut';
+import { userServiceAxiosInstance } from '../../../core/api/axios';
+import { useQuery } from '@tanstack/react-query';
 const FamilyRate = () => {
-  const [familyRate, setFamilyRate] = useState<string>('5');
+  // const [familyRate, setFamilyRate] = useState<string>('5');
+
+  const fetchFamilyRate = async () =>
+    await userServiceAxiosInstance.get(`/user/FR/1`).then((res) => res.data);
+
+  const { data, isLoading, error } = useQuery({
+    queryKey: [`familyrate`],
+    queryFn: () => fetchFamilyRate(),
+  });
+
   const familyRateInput = useRef<HTMLInputElement>();
   return (
     <>
       <Header headerTitle="금리 조정" />
       <RateHeader>
         <RateTitle>우리 가족의</RateTitle>
-        <RateParagraph>현재 가족금리 : {familyRate}%</RateParagraph>
+        <RateParagraph>현재 가족금리 : {data}%</RateParagraph>
         <RateParagraph>
           수정 후 가족금리 :
           <StyledTextFiled
             ref={familyRateInput}
-            placeholder={familyRate}
+            placeholder={data}
           ></StyledTextFiled>
           %
         </RateParagraph>
@@ -31,7 +42,7 @@ const FamilyRate = () => {
             putFamilyRate(parseFloat(familyRateInput.current.value)).then(
               (response) => {
                 if (typeof response === 'number') {
-                  setFamilyRate(response.toString());
+                  // setFamilyRate(response.toString());
                   alert(`가족금리가 수정되었습니다.`);
                 } else {
                   alert('오류!');
