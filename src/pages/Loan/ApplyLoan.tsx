@@ -3,13 +3,26 @@ import { BigButton } from '../../components/common';
 import { LoanInput, TitleHeader } from '../../components/feature';
 import { theme } from '../../styles';
 import { loanApplyStore } from '../../store/loanApplyStore';
-import { useState } from 'react';
+import { HtmlHTMLAttributes, useEffect, useState } from 'react';
 import { LoanItem, getLoan } from '../../core/api/loan/useLoanGet';
+import { addComma } from '../../core/loanService';
+import { postLoan } from '../../core/api/loan/useLoanPost';
 
 const ApplyLoan = () => {
   const { reason, price, changeValue } = loanApplyStore();
-  const [data, setData] = useState<LoanItem[]>();
-
+  const [addCommaValue, setAddCommaValue] = useState(price);
+  // useEffect(() => {
+  //   if()
+  // }, [price]);
+  const res = postLoan({
+    childId: 0,
+    loanInterest: 0,
+    period: 0,
+    price: 0,
+    pricePerMonth: 0,
+    reason: 'string',
+    totalPrice: 0,
+  });
   return (
     <>
       <TitleHeader
@@ -38,10 +51,15 @@ const ApplyLoan = () => {
             id="amount"
             type="number"
             placeholder="예) 99,900"
-            value={price}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              changeValue('amount', e.currentTarget.value)
-            }
+            value={price !== 0 ? price : ''}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              if (
+                !isNaN(Number(e.currentTarget.value)) &&
+                !e.target.value.includes('e')
+              ) {
+                changeValue('price', Number(e.currentTarget.value));
+              }
+            }}
           />
           <span>원</span>
         </div>

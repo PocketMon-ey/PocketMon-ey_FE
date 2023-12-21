@@ -3,6 +3,7 @@ import * as S from './styled';
 import { theme } from '../../../styles';
 import { loanApplyStore } from '../../../store/loanApplyStore';
 import { useLocation } from 'react-router-dom';
+import { addComma } from '../../../core/loanService';
 
 const ContentBackground = () => {
   const { reason, price } = loanApplyStore();
@@ -12,12 +13,12 @@ const ContentBackground = () => {
       <StyledIntro>
         <span>상세</span>
         <p>{reason}</p>
-        <p id="amount">{price}원</p>
+        <p id="amount">{addComma(price)}원</p>
       </StyledIntro>
       <S.StyledDetail>
         <StyledDetailItem>
           <span>총 납입금액</span>
-          <span>120,000원</span>
+          <span>{addComma(120000)}원</span>
         </StyledDetailItem>
         <StyledDetailItem>
           <span>대출원금</span>
@@ -33,7 +34,7 @@ const ContentBackground = () => {
         </StyledDetailItem>
         <StyledDetailItem>
           <span>월 납입금액</span>
-          <span>{'33,400'}원</span>
+          <span>{addComma(33400)}원</span>
         </StyledDetailItem>
         {(path.includes('ongoing') || path.includes('detail')) && (
           <StyledDetailItem>
