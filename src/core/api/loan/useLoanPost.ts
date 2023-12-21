@@ -34,6 +34,6 @@ export const postLoan = async (request: LoanItem) => {
     url: `/loan`,
     data: request,
   });
-  //   return response.data;
-  console.log(response.data);
+  return response.data;
+  //   console.log(response.data);
 };

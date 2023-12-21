@@ -14,9 +14,6 @@ const ApplyLoan = () => {
   const { addComma, submitLoanApply } = useLoanService();
   const navigate = useNavigate();
   const [addCommaValue, setAddCommaValue] = useState(price);
-  // useEffect(() => {
-  //   if()
-  // }, [price]);
 
   return (
     <>
