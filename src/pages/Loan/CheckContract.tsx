@@ -45,23 +45,24 @@ const CheckContract = () => {
       )}
       <ContentBackground />
       <StyledButtonBottom>
-        {!path.includes('checkContract/') && (
-          <BigButton
-            text="다음"
-            onClick={async () => {
-              await postLoan({
-                childId: 3,
-                loanInterest: loanInterest,
-                period: period,
-                price: price,
-                pricePerMonth: pricePerMonth,
-                reason: reason,
-                totalPrice: totalPrice,
-              });
-              navigate('/child/loan/list');
-            }}
-          />
-        )}
+        {path.includes('checkContract') &&
+          typeof path[path.length - 1] !== 'number' && (
+            <BigButton
+              text="다음"
+              onClick={async () => {
+                await postLoan({
+                  childId: 3,
+                  loanInterest: loanInterest,
+                  period: period,
+                  price: price,
+                  pricePerMonth: pricePerMonth,
+                  reason: reason,
+                  totalPrice: totalPrice,
+                });
+                navigate('/child/loan/list');
+              }}
+            />
+          )}
         {path.includes('judge') && (
           <StyledButtonFlexContainer>
             <BigButton
