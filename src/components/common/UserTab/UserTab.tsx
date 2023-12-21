@@ -2,7 +2,12 @@ import React from 'react';
 import { EditButton, UserTabContainer, UserTabHeader } from './styled';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const UserTab = () => {
+type Props = {
+  familyrate: number | undefined;
+  primerate: number | undefined;
+};
+
+const UserTab = ({ familyrate, primerate }: Props) => {
   const path = useLocation().pathname;
   const navigate = useNavigate();
   return (
@@ -10,7 +15,7 @@ const UserTab = () => {
       <UserTabHeader>
         <div>
           {path.includes('parent') ? '김지훈(아이)' : '김지훈'}님의 가족 금리 :
-          5%
+          {familyrate}%
         </div>
         {path.includes('parent') ? (
           <EditButton onClick={() => navigate('/parent/loan/rate')}>
@@ -21,7 +26,8 @@ const UserTab = () => {
         )}
       </UserTabHeader>
       <div>
-        {path.includes('parent') ? '김지훈(아이)' : '김지훈'}님의 우대 금리 : 2%
+        {path.includes('parent') ? '김지훈(아이)' : '김지훈'}님의 우대 금리 :{' '}
+        {primerate}%
       </div>
       <div>신용도 : 800 / 1000</div>
     </UserTabContainer>
