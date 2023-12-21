@@ -21,6 +21,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const ParentReject = () => {
   const path = useLocation().pathname;
   const navigate = useNavigate();
+  const inputRef = useRef<HTMLInputElement>(null);
   return (
     <>
       <Header headerTitle=""></Header>
@@ -118,8 +119,23 @@ const ParentReject = () => {
           >
             <UpArrow />
           </TopButtonContainer>
-          <RejectTextFiled />
-          <BigButton text="전송"></BigButton>
+          <RejectTextFiled ref={inputRef} required />
+          <BigButton
+            text="전송"
+            onClick={async () => {
+              await loanServiceAxiosInstance
+                .put('/loan/refuse', {
+                  loanId: path.split('/')[4],
+                  rejectionReason: inputRef.current?.value,
+                })
+                .then((res) => {
+                  if (res.status === 200) {
+                    alert('직접 작성된 반려 사유가 전송되었습니다.');
+                    navigate('/parent/loan/list');
+                  }
+                });
+            }}
+          ></BigButton>
         </RejectInputSection>
       </div>
     </>
