@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AddButton, Header, TabBar, UserTab } from '../../components/common';
 import CardGrid from '../../components/common/Card/CardGrid/CardGrid';
 import { AddButtonContainer } from './styled';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { userServiceAxiosInstance } from '../../core/api/axios';
-import { useQuery } from '@tanstack/react-query';
+import { useQueries, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
 type Props = {
@@ -32,6 +32,12 @@ const LoanList = () => {
         return res;
       }),
     );
+  // const result = useQueries({
+  //   queries: [
+  //     { queryKey: ['familyrate'], queryFn: () => fetchFamilyRate() },
+  //     { queryKey: ['primerate'], queryFn: () => fetchPrimeRate() },
+  //   ],
+  // });
 
   const { data, isLoading, error } = useQuery<Props>({
     queryKey: ['rate'],

@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchInterval: 1000,
+      refetchInterval: 300,
       refetchIntervalInBackground: true,
     },
   },
