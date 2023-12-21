@@ -35,5 +35,5 @@ export const postLoan = async (request: LoanItem) => {
     data: request,
   });
   return response.data;
-  //   console.log(response.data);
+  console.log(response.data);
 };

@@ -1,3 +1,4 @@
+import { NumberLiteralType } from 'typescript';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
@@ -6,19 +7,18 @@ export interface LoanApplyData {
   loanInterest: number;
   period: number;
   price: number;
-  pricePerMonth: number;
   reason: string;
   totalPrice: number;
+  pricePerMonth: number;
 }
-
 const initialState: LoanApplyData = {
   childId: 2,
   loanInterest: 0,
-  period: 0,
+  period: 3, //3개월
   price: 0,
-  pricePerMonth: 0,
   reason: '',
   totalPrice: 0,
+  pricePerMonth: 0,
 };
 
 export interface LoanApplyStore extends LoanApplyData {

@@ -17,6 +17,7 @@ import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import { loanApplyStore } from '../../store/loanApplyStore';
 import { TableItem, postTableList } from '../../core/api/loan/useTableListPost';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   familyrate: number;
@@ -24,7 +25,7 @@ type Props = {
 };
 const ActualPayment = () => {
   const [tableItem, setTableItem] = useState<TableItem[]>([]);
-
+  const navigate = useNavigate();
   const [value, setValue] = useState(3);
   const { addComma } = useLoanService();
   const onChange = (e: RadioChangeEvent) => {
@@ -60,6 +61,12 @@ const ActualPayment = () => {
       console.log('d');
     });
   }, []);
+  useEffect(() => {
+    if (tableItem.length > 0) {
+      changeValue('pricePerMonth', tableItem[1].pricePerMonth);
+      changeValue('totalPrice', tableItem[1].totalPrice);
+    }
+  }, [tableItem]);
 
   return (
     <>
@@ -89,14 +96,29 @@ const ActualPayment = () => {
                   <span id="category">월 납입금액</span>
                   <span id="category">총 납입금액</span>
                 </StyledSelectItem>
-                <Radio id="1" value={1}>
+                <Radio
+                  id="1"
+                  value={1}
+                  onClick={() => {
+                    changeValue('pricePerMonth', tableItem[0].pricePerMonth);
+                    changeValue('totalPrice', tableItem[0].totalPrice);
+                  }}
+                >
                   <StyledSelectItem>
                     <span>1개월</span>
                     <span>{addComma(tableItem[0].pricePerMonth)}원</span>
                     <span>{addComma(tableItem[0].totalPrice)}원</span>
                   </StyledSelectItem>
                 </Radio>
-                <Radio id="3" value={3} defaultChecked>
+                <Radio
+                  id="3"
+                  value={3}
+                  onClick={() => {
+                    changeValue('pricePerMonth', tableItem[1].pricePerMonth);
+                    changeValue('totalPrice', tableItem[1].totalPrice);
+                  }}
+                  defaultChecked
+                >
                   <StyledSelectItem>
                     <span>3개월</span>
                     <span>{addComma(tableItem[1].pricePerMonth)}원</span>
@@ -104,7 +126,14 @@ const ActualPayment = () => {
                   </StyledSelectItem>
                   <StyledCcoli />
                 </Radio>
-                <Radio id="6" value={6}>
+                <Radio
+                  id="6"
+                  onClick={() => {
+                    changeValue('pricePerMonth', tableItem[2].pricePerMonth);
+                    changeValue('totalPrice', tableItem[2].totalPrice);
+                  }}
+                  value={6}
+                >
                   <StyledSelectItem>
                     <span>6개월</span>
                     <span>{addComma(tableItem[2].pricePerMonth)}원</span>
@@ -127,7 +156,13 @@ const ActualPayment = () => {
       )}
 
       <StyledButtonBottom>
-        <BigButton text="다음" />
+        <BigButton
+          onClick={() => {
+            navigate('/child/loan/checkContract');
+            changeValue('periodIdx', value);
+          }}
+          text="다음"
+        />
       </StyledButtonBottom>
     </>
   );
