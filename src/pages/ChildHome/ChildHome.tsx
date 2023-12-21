@@ -13,6 +13,12 @@ import { StyledTitleDiv } from '../ParentHome/styled';
 import { Header } from '../../components/common';
 // import TitleWebp from '../../../assets/images/title.webp';
 // import TitleJPG from '../../assets/images/title.jpg';
+
+declare global {
+  interface Window {
+    webkit: any;
+  }
+}
 const ChildHome = () => {
   const navigate = useNavigate();
 
@@ -38,10 +44,14 @@ const ChildHome = () => {
           <HomeCardContainer
             id={2}
             onClick={() => {
-              window.webkit?.messageHandlers.userContentController.postMessage(
-                'pocketmoney',
-              );
-              navigate('/child/ready');
+              console.dir(window.webkit)
+              if(window.webkit) {
+                window.webkit.messageHandlers.PocketMoney.postMessage(
+                  // 유저 id, 부모인지 아닌wl
+                );
+              } else {
+                navigate('/child/ready');
+              }
             }}
           >
             <MainTitleContainer>미션</MainTitleContainer>
