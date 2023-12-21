@@ -45,7 +45,7 @@ const CheckContract = () => {
       )}
       <ContentBackground />
       <StyledButtonBottom>
-        {path.includes('checkContract') && (
+        {!path.includes('checkContract/') && (
           <BigButton
             text="다음"
             onClick={async () => {
