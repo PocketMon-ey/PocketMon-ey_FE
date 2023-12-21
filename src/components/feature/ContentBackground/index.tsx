@@ -3,10 +3,11 @@ import * as S from './styled';
 import { theme } from '../../../styles';
 import { loanApplyStore } from '../../../store/loanApplyStore';
 import { useLocation } from 'react-router-dom';
-import { addComma } from '../../../core/loanService';
+import { useLoanService } from '../../../core/loanService';
 
 const ContentBackground = () => {
   const { reason, price } = loanApplyStore();
+  const { addComma } = useLoanService();
   const path = useLocation().pathname;
   return (
     <S.StyledBackground>

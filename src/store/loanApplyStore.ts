@@ -2,17 +2,22 @@ import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
 export interface LoanApplyData {
-  reason: string;
+  childId: number;
+  loanInterest: number;
+  period: number;
   price: number;
+  pricePerMonth: number;
+  reason: string;
   totalPrice: number;
-  period?: number;
-  loanInterest?: number;
-  pricePerMonth?: number;
 }
 
 const initialState: LoanApplyData = {
-  reason: '',
+  childId: -1,
+  loanInterest: 0,
+  period: 0,
   price: 0,
+  pricePerMonth: 0,
+  reason: '',
   totalPrice: 0,
 };
 

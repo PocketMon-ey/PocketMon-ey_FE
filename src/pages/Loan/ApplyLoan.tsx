@@ -5,24 +5,19 @@ import { theme } from '../../styles';
 import { loanApplyStore } from '../../store/loanApplyStore';
 import { HtmlHTMLAttributes, useEffect, useState } from 'react';
 import { LoanItem, getLoan } from '../../core/api/loan/useLoanGet';
-import { addComma } from '../../core/loanService';
 import { postLoan } from '../../core/api/loan/useLoanPost';
+import { useNavigate } from 'react-router-dom';
+import { useLoanService } from '../../core/loanService';
 
 const ApplyLoan = () => {
   const { reason, price, changeValue } = loanApplyStore();
+  const { addComma, submitLoanApply } = useLoanService();
+  const navigate = useNavigate();
   const [addCommaValue, setAddCommaValue] = useState(price);
   // useEffect(() => {
   //   if()
   // }, [price]);
-  const res = postLoan({
-    childId: 0,
-    loanInterest: 0,
-    period: 0,
-    price: 0,
-    pricePerMonth: 0,
-    reason: 'string',
-    totalPrice: 0,
-  });
+
   return (
     <>
       <TitleHeader
@@ -53,18 +48,13 @@ const ApplyLoan = () => {
             placeholder="예) 99,900"
             value={price !== 0 ? price : ''}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              if (
-                !isNaN(Number(e.currentTarget.value)) &&
-                !e.target.value.includes('e')
-              ) {
-                changeValue('price', Number(e.currentTarget.value));
-              }
+              changeValue('price', Number(e.currentTarget.value));
             }}
           />
           <span>원</span>
         </div>
       </StyledInputSection>
-      <StyledButtonBottom>
+      <StyledButtonBottom onClick={() => navigate('/child/loan/actualPayment')}>
         <BigButton text="다음" />
       </StyledButtonBottom>
     </>
