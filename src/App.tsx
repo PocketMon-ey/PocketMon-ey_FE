@@ -34,7 +34,7 @@ function App() {
         <GlobalContextProvider>
           <Routes>
             <Route path="/" element={<SelectPage />} />
-            <Route path="/parent" element={<Layout />}>
+            {/* <Route path="/parent" element={<Layout />}>
               <Route path="home" element={<ParentHome />} />
               <Route path="loan">
                 <Route path="list" element={<LoanList />} />
@@ -47,8 +47,28 @@ function App() {
                 <Route path="rate/prime" element={<PrimeRate />} />
               </Route>
               <Route path="ready" element={<Ready />} />
-            </Route>
-            <Route path="/child" element={<Layout />}>
+            </Route> */}
+            <Route path="/parent/home" element={<ParentHome />} />
+            <Route path="/parent/loan/list" element={<LoanList />} />
+            <Route
+              path="/parent/loan/judge/:loanId"
+              element={<CheckContract />}
+            />
+            <Route
+              path="/parent/loan/ongoing/:loanId"
+              element={<CheckContract />}
+            />
+            <Route path="/parent/loan/reject" element={<ParentReject />} />
+            <Route
+              path="/parent/loan/detail/:loanId"
+              element={<LoanDetail />}
+            />
+            <Route path="/parent/loan/rate" element={<EditRate />} />
+            <Route path="/parent/loan/rate/family" element={<FamilyRate />} />
+            <Route path="/parent/loan/rate/prime" element={<PrimeRate />} />
+            <Route path="/parent/ready" element={<Ready />} />
+
+            {/* <Route path="/child" element={<Layout />}>
               <Route path="home" element={<ChildHome />} />
               <Route path="loan">
                 <Route path="list" element={<LoanList />} />
@@ -58,7 +78,20 @@ function App() {
                 <Route path="detail/:loanId" element={<LoanDetail />} />
               </Route>
               <Route path="ready" element={<Ready />} />
-            </Route>
+            </Route> */}
+            <Route path="/child/home" element={<ChildHome />} />
+            <Route path="/child/loan/list" element={<LoanList />} />
+            <Route path="/child/loan/apply" element={<ApplyLoan />} />
+            <Route
+              path="/child/loan/actualPayment"
+              element={<ActualPayment />}
+            />
+            <Route
+              path="/child/loan/checkContract"
+              element={<CheckContract />}
+            />
+            <Route path="/child/loan/detail/:loanId" element={<LoanDetail />} />
+            <Route path="/child/ready" element={<Ready />} />
           </Routes>
         </GlobalContextProvider>
       </MobileView>

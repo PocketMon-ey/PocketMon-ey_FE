@@ -9,14 +9,18 @@ import {
 } from '../styled';
 import { useNavigate } from 'react-router-dom';
 import Title from '../../components/common/Title/Title';
+import { Header } from '../../components/common';
+import { StyledTitleDiv } from './styled';
 
 const ParentHome = () => {
   const navigate = useNavigate();
   return (
     <div>
+      <Header headerTitle="" />
       <HomeTitleContainer>
         <MainTitleContainer>
-          <Title />
+          <StyledTitleDiv>pocket</StyledTitleDiv>
+          <StyledTitleDiv>money</StyledTitleDiv>
         </MainTitleContainer>
       </HomeTitleContainer>
       <CardGridContainer>

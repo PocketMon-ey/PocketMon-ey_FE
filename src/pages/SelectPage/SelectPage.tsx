@@ -15,6 +15,7 @@ import {
 } from './styled';
 import { useNavigate } from 'react-router-dom';
 import Title from '../../components/common/Title/Title';
+import { StyledTitleDiv } from '../ParentHome/styled';
 
 const SelectPage = () => {
   const navigate = useNavigate();
@@ -23,7 +24,8 @@ const SelectPage = () => {
       <TitleContainer>
         <SubTitleContainer>내 손안에 금융 도우미</SubTitleContainer>
         <MainTitleContainer>
-          <Title />
+          <StyledTitleDiv>pocket</StyledTitleDiv>
+          <StyledTitleDiv>money</StyledTitleDiv>
         </MainTitleContainer>
       </TitleContainer>
       <CardContainer>

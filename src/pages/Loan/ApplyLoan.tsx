@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BigButton } from '../../components/common';
+import { BigButton, Header } from '../../components/common';
 import { LoanInput, TitleHeader } from '../../components/feature';
 import { theme } from '../../styles';
 import { loanApplyStore } from '../../store/loanApplyStore';
@@ -20,6 +20,7 @@ const ApplyLoan = () => {
 
   return (
     <>
+      <Header headerTitle="대출 신청" />
       <TitleHeader
         title="대출을 신청해볼까요?"
         firstS="대출사유와 함께 금액을 설정해주세요."

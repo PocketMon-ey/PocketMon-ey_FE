@@ -34,7 +34,11 @@ const Header = ({ headerTitle }: Props) => {
       <HeaderTitleContainer>{headerTitle}</HeaderTitleContainer>
       <div
         onClick={() => {
-          navigate('home');
+          if (path.includes('parent')) {
+            navigate('/parent/home');
+          } else {
+            navigate('/child/home');
+          }
         }}
       >
         <ImageContainer src={Home}></ImageContainer>

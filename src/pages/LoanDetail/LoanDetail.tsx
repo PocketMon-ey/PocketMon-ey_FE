@@ -3,7 +3,7 @@ import { ContentBackground } from '../../components/feature';
 import { BalanceContainer, NextSendAlarm, ProgressBackground } from './styled';
 import { theme } from '../../styles';
 import { Progress } from 'antd';
-import { BigButton } from '../../components/common';
+import { BigButton, Header } from '../../components/common';
 import { useLocation, useParams } from 'react-router-dom';
 
 const ChildLoanDetail = () => {
@@ -11,6 +11,7 @@ const ChildLoanDetail = () => {
   const params = useParams();
   return (
     <>
+      <Header headerTitle="대출 상세" />
       <ProgressBackground>
         <div>현재 남은 대출금</div>
         <BalanceContainer>99,900원</BalanceContainer>

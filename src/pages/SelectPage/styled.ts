@@ -49,4 +49,9 @@ export const TitleContainer = styled.div`
 
 export const SubTitleContainer = styled.div``;
 
-export const MainTitleContainer = styled.div``;
+export const MainTitleContainer = styled.div`
+  font-size: 32px;
+  font-weight: 700;
+  margin-left: 10px;
+  margin-top: 10px;
+`;

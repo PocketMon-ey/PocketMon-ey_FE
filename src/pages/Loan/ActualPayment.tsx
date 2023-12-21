@@ -5,7 +5,7 @@ import type { RadioChangeEvent } from 'antd';
 import { Radio, ConfigProvider } from 'antd';
 import { useState } from 'react';
 import { StyledDetail } from '../../components/feature/ContentBackground/styled';
-import { BigButton } from '../../components/common';
+import { BigButton, Header } from '../../components/common';
 import { StyledButtonBottom } from './ApplyLoan';
 import { ReactComponent as Ccoli } from '../../assets/images/ccoli_recommend.svg';
 import { useLoanService } from '../../core/loanService';
@@ -19,6 +19,7 @@ const ActualPayment = () => {
   };
   return (
     <>
+      <Header headerTitle="대출 신청" />
       <TitleHeader
         title="대출기간을 선택하세요"
         firstS="대출 기간에 따라 이자가 변화합니다."

@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { BigButton } from '../../components/common';
+import { BigButton, Header } from '../../components/common';
 import { ContentBackground, TitleHeader } from '../../components/feature';
 import { styled } from 'styled-components';
 import { StyledButtonBottom } from './ApplyLoan';
@@ -9,6 +9,7 @@ const CheckContract = () => {
 
   return (
     <>
+      <Header headerTitle="대출 심사" />
       {path.includes('checkContract') && (
         <TitleHeader
           title="계약서를 확인해보세요"
