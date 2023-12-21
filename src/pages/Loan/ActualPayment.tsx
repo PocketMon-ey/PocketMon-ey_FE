@@ -8,10 +8,11 @@ import { StyledDetail } from '../../components/feature/ContentBackground/styled'
 import { BigButton } from '../../components/common';
 import { StyledButtonBottom } from './ApplyLoan';
 import { ReactComponent as Ccoli } from '../../assets/images/ccoli_recommend.svg';
+import { useLoanService } from '../../core/loanService';
 
 const ActualPayment = () => {
   const [value, setValue] = useState(3);
-
+  const { addComma, submitLoanApply } = useLoanService();
   const onChange = (e: RadioChangeEvent) => {
     console.log('radio checked', e.target.value);
     setValue(e.target.value);
@@ -46,23 +47,23 @@ const ActualPayment = () => {
               <Radio id="1" value={1}>
                 <StyledSelectItem>
                   <span>1개월</span>
-                  <span>{'99,000'}원</span>
-                  <span>{'99,000'}원</span>
+                  <span>{addComma(99000)}원</span>
+                  <span>{addComma(99000)}원</span>
                 </StyledSelectItem>
               </Radio>
               <Radio id="3" value={3} defaultChecked>
                 <StyledSelectItem>
                   <span>3개월</span>
-                  <span>{'33,400'}원</span>
-                  <span>{'100,200'}원</span>
+                  <span>{addComma(33400)}원</span>
+                  <span>{addComma(100200)}원</span>
                 </StyledSelectItem>
                 <StyledCcoli />
               </Radio>
               <Radio id="6" value={6}>
                 <StyledSelectItem>
                   <span>6개월</span>
-                  <span>{'16,000'}원</span>
-                  <span>{'101,400'}원</span>
+                  <span>{addComma(16000)}원</span>
+                  <span>{addComma(101400)}원</span>
                 </StyledSelectItem>
               </Radio>
             </StyledFlexContainer>

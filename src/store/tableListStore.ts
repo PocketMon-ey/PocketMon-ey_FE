@@ -18,7 +18,7 @@ interface ConstractStore extends ConstractData {
   changeValue: (inputId: string, inputValue: string) => void;
 }
 
-export const loanApplyStore = create<ConstractStore>()(
+export const tableListStore = create<ConstractStore>()(
   devtools((set) => ({
     ...initialState,
     changeValue: (inputId: string, inputValue: string) =>

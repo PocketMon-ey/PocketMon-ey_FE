@@ -23,7 +23,7 @@ const ContentBackground = () => {
         </StyledDetailItem>
         <StyledDetailItem>
           <span>대출원금</span>
-          <span>{price}원</span>
+          <span>{addComma(price)}원</span>
         </StyledDetailItem>
         <StyledDetailItem>
           <span>대출금리</span>

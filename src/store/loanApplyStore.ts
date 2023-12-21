@@ -12,7 +12,7 @@ export interface LoanApplyData {
 }
 
 const initialState: LoanApplyData = {
-  childId: -1,
+  childId: 2,
   loanInterest: 0,
   period: 0,
   price: 0,
