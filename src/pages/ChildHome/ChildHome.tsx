@@ -35,7 +35,15 @@ const ChildHome = () => {
             </SubTitleContainer>
           </HomeCardContainer>
 
-          <HomeCardContainer id={2} onClick={() => navigate('/child/ready')}>
+          <HomeCardContainer
+            id={2}
+            onClick={() => {
+              window.webkit?.messageHandlers.userContentController.postMessage(
+                'pocketmoney',
+              );
+              navigate('/child/ready');
+            }}
+          >
             <MainTitleContainer>미션</MainTitleContainer>
             <SubTitleContainer>
               # 심부름 <br /> # 목표

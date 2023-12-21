@@ -7,6 +7,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { queries } from '@testing-library/react';
 
+declare global {
+  interface Window {
+    webkit?: any;
+  }
+}
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
