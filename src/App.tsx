@@ -68,7 +68,7 @@ function App() {
             <Route path="/parent/loan/rate/prime" element={<PrimeRate />} />
             <Route path="/parent/ready" element={<Ready />} />
 
-            <Route path="/child" element={<Layout />}>
+            {/* <Route path="/child" element={<Layout />}>
               <Route path="home" element={<ChildHome />} />
               <Route path="loan">
                 <Route path="list" element={<LoanList />} />
@@ -78,7 +78,20 @@ function App() {
                 <Route path="detail/:loanId" element={<LoanDetail />} />
               </Route>
               <Route path="ready" element={<Ready />} />
-            </Route>
+            </Route> */}
+            <Route path="/child/home" element={<ChildHome />} />
+            <Route path="/child/loan/list" element={<LoanList />} />
+            <Route path="/child/loan/apply" element={<ApplyLoan />} />
+            <Route
+              path="/child/loan/actualPayment"
+              element={<ActualPayment />}
+            />
+            <Route
+              path="/child/loan/checkContract"
+              element={<CheckContract />}
+            />
+            <Route path="/child/loan/detail/:loanId" element={<LoanDetail />} />
+            <Route path="/child/ready" element={<Ready />} />
           </Routes>
         </GlobalContextProvider>
       </MobileView>

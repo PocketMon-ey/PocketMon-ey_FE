@@ -2,7 +2,6 @@ import React from 'react';
 
 // import ReadyJPG from '../../../src/assets/images/ready.jpg';
 import { TitleHeader } from '../../components/feature';
-import CollyReady from '../../components/common/CollyReady/CollyReady';
 import { Header } from '../../components/common';
 
 const Ready = () => {
@@ -16,9 +15,7 @@ const Ready = () => {
           justifyContent: 'center',
           alignItems: 'center',
         }}
-      >
-        <CollyReady />
-      </div>
+      ></div>
     </>
   );
 };
