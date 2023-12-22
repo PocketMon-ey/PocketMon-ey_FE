@@ -28,7 +28,7 @@ const Header = ({ headerTitle }: Props) => {
             if (path.includes('parent')) {
               navigate('/parent/home');
             } else {
-              navigate('/child/child');
+              navigate('/child/home');
             }
           } else {
             navigate(-1);

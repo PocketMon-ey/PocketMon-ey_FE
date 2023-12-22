@@ -5,8 +5,8 @@ export const ParentCardContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 157px;
-  height: 170px;
+  width: 150px;
+  height: 150px;
   border-radius: 20px;
   background-color: ${theme.colors.gray_005};
 `;
@@ -15,8 +15,8 @@ export const ChildCardContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 157px;
-  height: 170px;
+  width: 150px;
+  height: 150px;
   border-radius: 20px;
   background-color: ${theme.colors.primary_orange};
 `;

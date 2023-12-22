@@ -34,7 +34,7 @@ export const SubTitleContainer = styled.div`
   font-size: 26px;
   font-weight: 700;
   margin-left: 10px;
-  margin-top: 50px;
+  margin-top: 40px;
 `;
 
 export const HomeTitleContainer = styled.div`
