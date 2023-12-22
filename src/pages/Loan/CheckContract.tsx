@@ -33,7 +33,7 @@ const CheckContract = () => {
           secondS="자신이 신청한 내용이 맞는지 체크해주세요."
         />
       )}
-      {path.includes('judge') && (
+      {path.includes('/parent/loan/checkContract') && (
         <TitleHeader
           title="대출 신청 내역"
           firstS="아이가 신청한 대출내역입니다."
@@ -46,7 +46,7 @@ const CheckContract = () => {
           firstS="아래의 사항으로 대출이 진행중입니다."
         />
       )}
-      {params.loanId && (
+      {path.includes('/child/loan/checkContract') && params.loanId && (
         <TitleHeader
           title="대출 계약서"
           firstS="아래의 사항으로 대출 승인 대기중입니다."
@@ -73,11 +73,11 @@ const CheckContract = () => {
             }}
           />
         )}
-        {path.includes('/parent/loan/judge/:loanId') && (
+        {path.includes('/parent/loan/checkContract') && (
           <StyledButtonFlexContainer>
             <BigButton
               text="승인"
-              onClick={async () =>
+              onClick={async () => {
                 await loanServiceAxiosInstance
                   .put('/loan/approve', {
                     loanId: +path.split('/')[4],
@@ -86,8 +86,9 @@ const CheckContract = () => {
                     if (res.status === 200) {
                       alert('승인 완료!');
                     }
-                  })
-              }
+                  });
+                navigate(`/parent/loan/list`);
+              }}
             />{' '}
             <BigButton
               text="반려"
