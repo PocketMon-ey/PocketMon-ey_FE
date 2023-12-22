@@ -23,6 +23,12 @@ import { theme } from '../../styles';
 
 // import TitleWebp from '../../../assets/images/title.webp';
 // import TitleJPG from '../../assets/images/title.jpg';
+
+declare global {
+  interface Window {
+    webkit: any;
+  }
+}
 const ChildHome = () => {
   const navigate = useNavigate();
   // '/user/{userId}'에 요청 후 데이터 useState
@@ -52,7 +58,19 @@ const ChildHome = () => {
             </SubTitleContainer>
           </HomeCardContainer>
 
-          <HomeCardContainer id={2} onClick={() => navigate('/child/ready')}>
+          <HomeCardContainer
+            id={2}
+            onClick={() => {
+              if (window.webkit) {
+                window.webkit.messageHandlers.PocketMoney.postMessage(
+                  // 유저 id, isChild
+                  '2 1',
+                );
+              } else {
+                navigate('/child/ready');
+              }
+            }}
+          >
             <MainTitleContainer>미션</MainTitleContainer>
             <div style={{ color: theme.colors.primary_pink, fontSize: '42px' }}>
               "

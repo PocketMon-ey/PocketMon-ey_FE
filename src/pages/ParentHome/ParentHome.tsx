@@ -48,7 +48,19 @@ const ParentHome = () => {
           </SubTitleContainer>
         </HomeCardContainer>
 
-        <HomeCardContainer id={2} onClick={() => navigate('/parent/ready')}>
+        <HomeCardContainer
+          id={2}
+          onClick={() => {
+            if (window.webkit) {
+              window.webkit.messageHandlers.PocketMoney.postMessage(
+                // 유저 id, isChild
+                '1 0',
+              );
+            } else {
+              navigate('/child/ready');
+            }
+          }}
+        >
           <MainTitleContainer>미션</MainTitleContainer>
           <div style={{ color: theme.colors.primary_pink, fontSize: '42px' }}>
             "
