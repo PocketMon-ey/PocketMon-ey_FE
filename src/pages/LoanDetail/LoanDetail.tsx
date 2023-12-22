@@ -10,6 +10,8 @@ import {
   getDetail,
 } from '../../core/api/loan/useLoanDetailGet';
 import { useLoanService } from '../../core/loanService';
+import { postLoan } from '../../core/api/loan/useLoanPost';
+import { loanRepayment } from '../../core/api/loan/useRepaymentPost';
 
 const ChildLoanDetail = () => {
   const path = useLocation().pathname;
@@ -24,6 +26,11 @@ const ChildLoanDetail = () => {
       });
     }
   }, []);
+  const repaymentLoan = (loanId: number) => {
+    loanRepayment(Number(params.loanId)).then((response) => {
+      console.log(response);
+    });
+  };
   const calPercent = (repaymentCnt: number, period: number) => {
     return (repaymentCnt / period) * 100;
   };
@@ -34,7 +41,7 @@ const ChildLoanDetail = () => {
           <Header headerTitle="대출 상세" />
           <ProgressBackground>
             <div>현재 남은 대출금</div>
-            <BalanceContainer>{addComma(data?.price)}원</BalanceContainer>
+            <BalanceContainer>{addComma(data?.remainPrice)}원</BalanceContainer>
             <NextSendAlarm>
               다음 납입일은 2024.01.{data?.startDate.split('.')[2]} 입니다
             </NextSendAlarm>
@@ -51,7 +58,12 @@ const ChildLoanDetail = () => {
             </div>
           </ProgressBackground>
           <ContentBackground />
-          {path.includes('child') && <BigButton text="납입" />}
+          {path.includes('child') && (
+            <BigButton
+              text="납입"
+              onClick={() => repaymentLoan(Number(params.loanId))}
+            />
+          )}
         </>
       )}
     </>

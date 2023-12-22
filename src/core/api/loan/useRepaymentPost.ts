@@ -28,12 +28,11 @@ export type LoanItem = {
   reason: string;
   totalPrice: number;
 };
-export const postLoan = async (request: LoanItem) => {
-  const response = await loanServiceAxiosInstance<LoanPostResponse>({
-    method: 'POST',
-    url: `/loan`,
-    data: request,
+
+export const loanRepayment = async (loanId: number) => {
+  const response = await loanServiceAxiosInstance.put(`/loan/repayment`, {
+    loanId: loanId,
   });
-  return response.data;
-  console.log(response.data);
+
+  return response.data.list;
 };
