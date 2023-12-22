@@ -11,6 +11,15 @@ import { useNavigate } from 'react-router-dom';
 import Title from '../../components/common/Title/Title';
 import { StyledTitleDiv } from '../ParentHome/styled';
 import { Header } from '../../components/common';
+import {
+  CContainer,
+  EContainer,
+  KContainer,
+  OContainer,
+  PContainer,
+  TContainer,
+} from '../SelectPage/styled';
+
 // import TitleWebp from '../../../assets/images/title.webp';
 // import TitleJPG from '../../assets/images/title.jpg';
 const ChildHome = () => {
@@ -23,7 +32,14 @@ const ChildHome = () => {
       <div>
         <HomeTitleContainer>
           <MainTitleContainer>
-            <StyledTitleDiv>pocket</StyledTitleDiv>
+            <StyledTitleDiv>
+              <PContainer>p</PContainer>
+              <OContainer>o</OContainer>
+              <CContainer>c</CContainer>
+              <KContainer>k</KContainer>
+              <EContainer>e</EContainer>
+              <TContainer>t</TContainer>
+            </StyledTitleDiv>
             <StyledTitleDiv>money</StyledTitleDiv>
           </MainTitleContainer>
         </HomeTitleContainer>
