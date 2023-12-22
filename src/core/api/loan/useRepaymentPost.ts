@@ -1,6 +1,6 @@
 import { loanServiceAxiosInstance } from '../axios';
 
-export interface LoanPostResponse {
+export interface LoanPutResponse {
   id: number;
   reason: string;
   price: number;
@@ -9,8 +9,8 @@ export interface LoanPostResponse {
   interestRate: number;
   monthlyRepaymentPrice: number;
   period: number;
-  startDate: null;
-  endDate: null;
+  startDate: string;
+  endDate: string;
   repaymentCnt: number;
   status: number;
   rejectReason: null;
@@ -28,12 +28,11 @@ export type LoanItem = {
   reason: string;
   totalPrice: number;
 };
-export const postLoan = async (request: LoanItem) => {
-  const response = await loanServiceAxiosInstance<LoanPostResponse>({
-    method: 'POST',
-    url: `/loan`,
-    data: request,
+
+export const loanRepayment = async (loanId: number) => {
+  const response = await loanServiceAxiosInstance.put(`/loan/repayment`, {
+    loanId: loanId,
   });
+
   return response.data;
-  console.log(response.data);
 };
