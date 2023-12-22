@@ -1,35 +1,39 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { BigButton, Header } from '../../components/common';
 import { ContentBackground, TitleHeader } from '../../components/feature';
 import { styled } from 'styled-components';
 import { StyledButtonBottom } from './ApplyLoan';
 import { postLoan } from '../../core/api/loan/useLoanPost';
 import { loanApplyStore } from '../../store/loanApplyStore';
+import { useEffect, useState } from 'react';
 import { loanServiceAxiosInstance } from '../../core/api/axios';
 
 const CheckContract = () => {
   const path = useLocation().pathname;
   const navigate = useNavigate();
+  const [data, setData] = useState();
+  const params = useParams();
+
   const {
     reason,
     price,
     loanInterest,
     period,
-    changeValue,
+    changeInitialize,
     pricePerMonth,
     totalPrice,
   } = loanApplyStore();
   return (
     <>
       <Header headerTitle="대출 심사" />
-      {path.includes('checkContract') && (
+      {!params.loanId && path.includes('checkContract') && (
         <TitleHeader
           title="계약서를 확인해보세요"
           firstS="아래의 사항으로 대출이 신청됩니다."
           secondS="자신이 신청한 내용이 맞는지 체크해주세요."
         />
       )}
-      {path.includes('judge') && (
+      {path.includes('/parent/loan/checkContract') && (
         <TitleHeader
           title="대출 신청 내역"
           firstS="아이가 신청한 대출내역입니다."
@@ -42,9 +46,15 @@ const CheckContract = () => {
           firstS="아래의 사항으로 대출이 진행중입니다."
         />
       )}
+      {path.includes('/child/loan/checkContract') && params.loanId && (
+        <TitleHeader
+          title="대출 계약서"
+          firstS="아래의 사항으로 대출 승인 대기중입니다."
+        />
+      )}
       <ContentBackground />
       <StyledButtonBottom>
-        {path.includes('checkContract') && path[path.length - 1] === 't' && (
+        {path.includes('checkContract') && !params.loanId && (
           <BigButton
             text="다음"
             onClick={async () => {
@@ -57,16 +67,17 @@ const CheckContract = () => {
                 reason: reason,
                 totalPrice: totalPrice,
               });
+              changeInitialize();
               alert('대출 요청 완료');
               navigate('/child/loan/list');
             }}
           />
         )}
-        {path.includes('judge') && (
+        {path.includes('/parent/loan/checkContract') && (
           <StyledButtonFlexContainer>
             <BigButton
               text="승인"
-              onClick={async () =>
+              onClick={async () => {
                 await loanServiceAxiosInstance
                   .put('/loan/approve', {
                     loanId: +path.split('/')[4],
@@ -75,8 +86,9 @@ const CheckContract = () => {
                     if (res.status === 200) {
                       alert('승인 완료!');
                     }
-                  })
-              }
+                  });
+                navigate(`/parent/loan/list`);
+              }}
             />{' '}
             <BigButton
               text="반려"

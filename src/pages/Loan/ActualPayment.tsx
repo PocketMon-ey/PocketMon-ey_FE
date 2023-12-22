@@ -53,13 +53,13 @@ const ActualPayment = () => {
     queryFn: () => fetchRate(),
     refetchInterval: false,
   });
-
   const tableList = postTableList(loanInterest, price);
   useEffect(() => {
-    tableList.then((data) => {
-      setTableItem(data);
-    });
-  }, []);
+    if (loanInterest !== 0)
+      tableList.then((data) => {
+        setTableItem(data);
+      });
+  }, [loanInterest]);
 
   useEffect(() => {
     if (tableItem.length > 0) {
@@ -159,7 +159,7 @@ const ActualPayment = () => {
         <BigButton
           onClick={() => {
             navigate('/child/loan/checkContract');
-            changeValue('periodIdx', value);
+            changeValue('period', value);
           }}
           text="다음"
         />
