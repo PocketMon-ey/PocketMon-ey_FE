@@ -32,7 +32,6 @@ const ActualPayment = () => {
   const [value, setValue] = useState(3);
   const { addComma } = useLoanService();
   const onChange = (e: RadioChangeEvent) => {
-    console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
   const { price, changeValue, loanInterest } = loanApplyStore();
@@ -59,7 +58,6 @@ const ActualPayment = () => {
   useEffect(() => {
     tableList.then((data) => {
       setTableItem(data);
-      console.log('d');
     });
   }, []);
 
