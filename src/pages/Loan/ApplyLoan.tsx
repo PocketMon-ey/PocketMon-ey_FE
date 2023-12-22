@@ -3,7 +3,7 @@ import { BigButton, Header } from '../../components/common';
 import { LoanInput, TitleHeader } from '../../components/feature';
 import { theme } from '../../styles';
 import { loanApplyStore } from '../../store/loanApplyStore';
-import { HtmlHTMLAttributes, useEffect, useState } from 'react';
+import { HtmlHTMLAttributes, useEffect, useRef, useState } from 'react';
 import { LoanItem, getLoan } from '../../core/api/loan/useLoanGet';
 import { postLoan } from '../../core/api/loan/useLoanPost';
 import { useNavigate } from 'react-router-dom';
@@ -52,7 +52,31 @@ const ApplyLoan = () => {
           <span>원</span>
         </div>
       </StyledInputSection>
-      <StyledButtonBottom onClick={() => navigate('/child/loan/actualPayment')}>
+      <StyledButtonBottom
+        onClick={() => {
+          if (!reason) {
+            alert('대출 사유를 입력해주세요');
+            return;
+          } else {
+            if (price) {
+              if (typeof price !== 'number') {
+                alert('금액은 숫자로 입력해주세요');
+                return;
+              } else if (price < 0) {
+                alert('올바르지 않은 금액입니다.');
+                return;
+              } else if (price > 5000000) {
+                alert('대출 금액이 너무 높습니다.');
+                return;
+              }
+            } else {
+              alert('금액을 입력해주세요');
+              return;
+            }
+          }
+          navigate('/child/loan/actualPayment');
+        }}
+      >
         <BigButton text="다음" />
       </StyledButtonBottom>
     </>
