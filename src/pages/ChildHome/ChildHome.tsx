@@ -44,10 +44,10 @@ const ChildHome = () => {
           <HomeCardContainer
             id={2}
             onClick={() => {
-              console.dir(window.webkit)
-              if(window.webkit) {
+              if (window.webkit) {
                 window.webkit.messageHandlers.PocketMoney.postMessage(
-                  // 유저 id, 부모인지 아닌wl
+                  // 유저 id, isChild
+                  '2 1',
                 );
               } else {
                 navigate('/child/ready');
