@@ -13,4 +13,5 @@ export const StatusDivContainer = styled.div`
 
 export const StatusContainer = styled.span`
   color: ${theme.colors.white};
+  font-size: 12px;
 `;

@@ -19,6 +19,7 @@ import {
   PContainer,
   TContainer,
 } from '../SelectPage/styled';
+import { theme } from '../../styles';
 
 const ParentHome = () => {
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ const ParentHome = () => {
       <CardGridContainer>
         <HomeCardContainer onClick={() => navigate('/parent/ready')} id={1}>
           <MainTitleContainer>송금</MainTitleContainer>
+          <div style={{ color: '#FFBC00', fontSize: '32px' }}>"</div>
           <SubTitleContainer>
             # 정기 용돈 <br /> # 송금
           </SubTitleContainer>
@@ -48,19 +50,26 @@ const ParentHome = () => {
 
         <HomeCardContainer id={2} onClick={() => navigate('/parent/ready')}>
           <MainTitleContainer>미션</MainTitleContainer>
+          <div style={{ color: theme.colors.primary_pink, fontSize: '32px' }}>
+            "
+          </div>
           <SubTitleContainer>
             # 심부름 <br /> # 목표
           </SubTitleContainer>
         </HomeCardContainer>
         <HomeCardContainer id={3} onClick={() => navigate('/parent/loan/list')}>
           <MainTitleContainer>대출</MainTitleContainer>
+          <div style={{ color: theme.colors.primary_green, fontSize: '32px' }}>
+            "
+          </div>
           <SubTitleContainer>
             # 대출 관리
             <br /> # 급한 돈
           </SubTitleContainer>
         </HomeCardContainer>
         <HomeCardContainer id={4} onClick={() => navigate('/parent/ready')}>
-          <MainTitleContainer>오늘의 퀴즈</MainTitleContainer>
+          <MainTitleContainer>오늘의</MainTitleContainer>
+          <MainTitleContainer>퀴즈</MainTitleContainer>
           <SubTitleContainer>
             # 아침 10시
             <br /> # 금융 상식
