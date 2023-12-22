@@ -46,7 +46,9 @@ const ChildLoanDetail = () => {
             <div>현재 남은 대출금</div>
             <BalanceContainer>{addComma(data?.remainPrice)}원</BalanceContainer>
             <NextSendAlarm>
-              다음 납입일은 2024.01.{data?.startDate.split('.')[2]} 입니다
+              다음 납입일은 2024.
+              {(1 + Number(data?.repaymentCnt)).toString().padStart(2, '0')}.
+              {data?.startDate.split('.')[2]} 입니다
             </NextSendAlarm>
             <Progress
               percent={calPercent(data?.repaymentCnt, data?.period)}
@@ -54,11 +56,20 @@ const ChildLoanDetail = () => {
               strokeColor={theme.colors.primary_purple}
               size={['default', 20]}
             ></Progress>
-            <div
-              style={{ marginTop: '5px', color: theme.colors.primary_purple }}
-            >
-              앞으로 {data?.period - data?.repaymentCnt}번만 더 내면 완료!
-            </div>
+            {data?.remainPrice !== 0 && (
+              <div
+                style={{ marginTop: '5px', color: theme.colors.primary_purple }}
+              >
+                앞으로 {data?.period - data?.repaymentCnt}번만 더 내면 완료!
+              </div>
+            )}
+            {data?.remainPrice === 0 && (
+              <div
+                style={{ marginTop: '5px', color: theme.colors.primary_purple }}
+              >
+                대출을 상환 완료했습니다. 고생하셨습니다!
+              </div>
+            )}
           </ProgressBackground>
           <ContentBackground />
           {path.includes('child') && (
