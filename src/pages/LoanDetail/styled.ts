@@ -16,6 +16,9 @@ export const ProgressBackground = styled.section`
 export const BalanceContainer = styled.div`
   font-size: 48px;
   font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 `;
 
 export const NextSendAlarm = styled.div`

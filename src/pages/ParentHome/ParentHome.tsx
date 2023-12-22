@@ -20,6 +20,7 @@ import {
   TContainer,
 } from '../SelectPage/styled';
 import { theme } from '../../styles';
+import Balance from '../../components/common/Balance/Balance';
 
 const ParentHome = () => {
   const navigate = useNavigate();
@@ -39,6 +40,7 @@ const ParentHome = () => {
           <StyledTitleDiv>money</StyledTitleDiv>
         </MainTitleContainer>
       </HomeTitleContainer>
+      <Balance id={1} />
       <CardGridContainer>
         <HomeCardContainer onClick={() => navigate('/parent/ready')} id={1}>
           <MainTitleContainer>송금</MainTitleContainer>
