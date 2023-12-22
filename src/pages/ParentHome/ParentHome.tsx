@@ -42,7 +42,7 @@ const ParentHome = () => {
       <CardGridContainer>
         <HomeCardContainer onClick={() => navigate('/parent/ready')} id={1}>
           <MainTitleContainer>송금</MainTitleContainer>
-          <div style={{ color: '#FFBC00', fontSize: '32px' }}>"</div>
+          <div style={{ color: '#FFBC00', fontSize: '42px' }}>"</div>
           <SubTitleContainer>
             # 정기 용돈 <br /> # 송금
           </SubTitleContainer>
@@ -50,7 +50,7 @@ const ParentHome = () => {
 
         <HomeCardContainer id={2} onClick={() => navigate('/parent/ready')}>
           <MainTitleContainer>미션</MainTitleContainer>
-          <div style={{ color: theme.colors.primary_pink, fontSize: '32px' }}>
+          <div style={{ color: theme.colors.primary_pink, fontSize: '42px' }}>
             "
           </div>
           <SubTitleContainer>
@@ -59,7 +59,7 @@ const ParentHome = () => {
         </HomeCardContainer>
         <HomeCardContainer id={3} onClick={() => navigate('/parent/loan/list')}>
           <MainTitleContainer>대출</MainTitleContainer>
-          <div style={{ color: theme.colors.primary_green, fontSize: '32px' }}>
+          <div style={{ color: theme.colors.primary_green, fontSize: '42px' }}>
             "
           </div>
           <SubTitleContainer>

@@ -21,6 +21,7 @@ export const EditButton = styled.div`
   width: 60px;
   height: 20px;
   text-align: center;
+  font-size: 12px;
 `;
 
 export const UserTabHeader = styled.div`

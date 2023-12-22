@@ -46,7 +46,7 @@ const ChildHome = () => {
         <CardGridContainer>
           <HomeCardContainer onClick={() => navigate('/child/ready')} id={1}>
             <MainTitleContainer>송금</MainTitleContainer>
-            <div style={{ color: '#FFBC00', fontSize: '32px' }}>"</div>
+            <div style={{ color: '#FFBC00', fontSize: '42px' }}>"</div>
             <SubTitleContainer>
               # 대출 갚기 <br /> # 송금
             </SubTitleContainer>
@@ -54,7 +54,7 @@ const ChildHome = () => {
 
           <HomeCardContainer id={2} onClick={() => navigate('/child/ready')}>
             <MainTitleContainer>미션</MainTitleContainer>
-            <div style={{ color: theme.colors.primary_pink, fontSize: '32px' }}>
+            <div style={{ color: theme.colors.primary_pink, fontSize: '42px' }}>
               "
             </div>
             <SubTitleContainer>
@@ -67,7 +67,7 @@ const ChildHome = () => {
           >
             <MainTitleContainer>대출</MainTitleContainer>
             <div
-              style={{ color: theme.colors.primary_green, fontSize: '32px' }}
+              style={{ color: theme.colors.primary_green, fontSize: '42px' }}
             >
               "
             </div>
@@ -77,7 +77,8 @@ const ChildHome = () => {
             </SubTitleContainer>
           </HomeCardContainer>
           <HomeCardContainer id={4} onClick={() => navigate('/child/ready')}>
-            <MainTitleContainer>오늘의 퀴즈</MainTitleContainer>
+            <MainTitleContainer>오늘의</MainTitleContainer>
+            <MainTitleContainer>퀴즈</MainTitleContainer>
             <SubTitleContainer>
               # 아침 10시
               <br /> # 금융 상식
