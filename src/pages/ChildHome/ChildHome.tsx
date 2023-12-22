@@ -29,7 +29,7 @@ const ChildHome = () => {
   return (
     <>
       <Header headerTitle="" />
-      <div>
+      <div style={{ height: '400px' }}>
         <HomeTitleContainer>
           <MainTitleContainer>
             <StyledTitleDiv>

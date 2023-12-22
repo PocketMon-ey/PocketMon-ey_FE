@@ -23,7 +23,7 @@ import {
 const ParentHome = () => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div style={{ height: '400px' }}>
       <Header headerTitle="" />
       <HomeTitleContainer>
         <MainTitleContainer>

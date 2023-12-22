@@ -4,6 +4,7 @@ import Card from '../Card';
 import { LoanListContext } from '../../../../context/context';
 import { loanServiceAxiosInstance } from '../../../../core/api/axios';
 import { useQuery } from '@tanstack/react-query';
+import './CardGrid.css';
 
 type Loan = {
   id: number;
@@ -25,15 +26,20 @@ const CardGrid = ({ status }: { status: number }) => {
   });
 
   if (isLoading) {
-    return <div>Loading중</div>;
+    return (
+      <div className="main">
+        <div className="droplet_spinner">
+          <div className="droplet"></div>
+          <div className="droplet"></div>
+          <div className="droplet"></div>
+        </div>
+      </div>
+    );
   }
 
   if (error) {
     return <div>에러!!</div>;
   }
-  // const list = useContext(LoanListContext).filter(
-  //   (loan: Loan) => loan.status === status,
-  // );
   return (
     <CardGridContainer>
       {data.loanList.map((loan: Loan) => (
