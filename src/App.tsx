@@ -56,6 +56,10 @@ function App() {
               element={<CheckContract />}
             />
             <Route
+              path="parent/loan/checkContract/:loanId"
+              element={<CheckContract />}
+            />
+            <Route
               path="/parent/loan/ongoing/:loanId"
               element={<CheckContract />}
             />

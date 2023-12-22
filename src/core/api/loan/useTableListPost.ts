@@ -11,5 +11,6 @@ export const postTableList = async (loanInterest: number, price: number) => {
     loanInterest: loanInterest,
     price: price,
   });
+  console.log('loanInterest', loanInterest);
   return response.data.list;
 };
