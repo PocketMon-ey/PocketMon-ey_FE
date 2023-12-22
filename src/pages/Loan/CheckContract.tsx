@@ -46,7 +46,7 @@ const CheckContract = () => {
       <ContentBackground />
       <StyledButtonBottom>
         {path.includes('checkContract') &&
-          typeof path[path.length - 1] !== 'number' && (
+          typeof parseInt(path[path.length - 1]) !== 'number' && (
             <BigButton
               text="다음"
               onClick={async () => {

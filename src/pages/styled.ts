@@ -6,8 +6,6 @@ type Props = {
 };
 
 export const HomeCardContainer = styled.div<Props>`
-  width: 160px;
-  height: 190px;
   border-radius: 20px;
   margin-bottom: 20px;
   background-color: ${(props) => {
@@ -49,7 +47,8 @@ export const HomeTitleContainer = styled.div`
 
 export const CardGridContainer = styled.div`
   display: grid;
-  grid-column-gap: 20px;
+  height: 120%;
+  grid-column-gap: 10px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 `;
