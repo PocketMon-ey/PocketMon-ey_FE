@@ -18,9 +18,10 @@ export const EditButton = styled.div`
   background-color: ${theme.colors.white};
   color: ${theme.colors.gray_003};
   border-radius: 10px;
-  width: 80px;
+  width: 60px;
   height: 20px;
   text-align: center;
+  font-size: 12px;
 `;
 
 export const UserTabHeader = styled.div`

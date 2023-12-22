@@ -7,3 +7,7 @@ export const putFamilyRate = async (inputValue: number) => {
   });
   return data;
 };
+
+export const fetchFamilyRate = () => userServiceAxiosInstance.get(`/user/FR/1`);
+
+export const getRate = () => userServiceAxiosInstance.get('/user/IR/1');

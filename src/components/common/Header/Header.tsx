@@ -24,6 +24,12 @@ const Header = ({ headerTitle }: Props) => {
         onClick={() => {
           if (path.includes('home')) {
             navigate('/');
+          } else if (path.includes('list')) {
+            if (path.includes('parent')) {
+              navigate('/parent/home');
+            } else {
+              navigate('/child/home');
+            }
           } else {
             navigate(-1);
           }

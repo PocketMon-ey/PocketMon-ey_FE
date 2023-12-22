@@ -28,7 +28,15 @@ const Card = ({ id, reason, price, startDate, status }: Props) => {
   return (
     <CardContainer
       onClick={() => {
-        navigate(`${baseUrl}/${id}`);
+        if (status === 0) {
+          if (path.includes('parent')) {
+            navigate(`${baseUrl}/judge/${id}`);
+          } else {
+            navigate(`${baseUrl}/checkContract/${id}`);
+          }
+        } else if (status === 1) {
+          navigate(`${baseUrl}/detail/${id}`);
+        }
       }}
     >
       <CardHeader status={status} startDate={startDate} />

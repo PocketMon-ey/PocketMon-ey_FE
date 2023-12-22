@@ -5,8 +5,8 @@ export const ParentCardContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 157px;
-  height: 170px;
+  width: 150px;
+  height: 150px;
   border-radius: 20px;
   background-color: ${theme.colors.gray_005};
 `;
@@ -15,8 +15,8 @@ export const ChildCardContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 157px;
-  height: 170px;
+  width: 150px;
+  height: 150px;
   border-radius: 20px;
   background-color: ${theme.colors.primary_orange};
 `;
@@ -54,4 +54,28 @@ export const MainTitleContainer = styled.div`
   font-weight: 700;
   margin-left: 10px;
   margin-top: 10px;
+`;
+
+export const PContainer = styled.span`
+  color: ${theme.colors.primary_pink};
+`;
+
+export const OContainer = styled.span`
+  color: ${theme.colors.primary_orange};
+`;
+
+export const CContainer = styled.span`
+  color: ${theme.colors.primary_green};
+`;
+
+export const KContainer = styled.span`
+  color: ${theme.colors.primary_blue};
+`;
+
+export const EContainer = styled.span`
+  color: ${theme.colors.primary_purple};
+`;
+
+export const TContainer = styled.span`
+  color: ${theme.colors.primary_pink};
 `;

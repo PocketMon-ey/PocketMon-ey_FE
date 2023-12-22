@@ -18,24 +18,23 @@ import { useQuery } from '@tanstack/react-query';
 import { loanApplyStore } from '../../store/loanApplyStore';
 import { TableItem, postTableList } from '../../core/api/loan/useTableListPost';
 import { useNavigate } from 'react-router-dom';
+import { fetchFamilyRate } from '../../core/api/user/useFamilyRatePut';
+import { fetchPrimeRate } from '../../core/api/user/usePrimeRatePut';
 
 type Props = {
   familyrate: number;
   primerate: number;
 };
+
 const ActualPayment = () => {
   const [tableItem, setTableItem] = useState<TableItem[]>([]);
   const navigate = useNavigate();
   const [value, setValue] = useState(3);
   const { addComma } = useLoanService();
   const onChange = (e: RadioChangeEvent) => {
-    console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
   const { price, changeValue, loanInterest } = loanApplyStore();
-  const fetchFamilyRate = () => userServiceAxiosInstance.get(`/user/FR/1`);
-
-  const fetchPrimeRate = () => userServiceAxiosInstance.get(`/user/PIR/2`);
 
   const fetchRate = async () =>
     await axios.all([fetchFamilyRate(), fetchPrimeRate()]).then(
@@ -54,13 +53,14 @@ const ActualPayment = () => {
     queryFn: () => fetchRate(),
     refetchInterval: false,
   });
+
   const tableList = postTableList(loanInterest, price);
   useEffect(() => {
     tableList.then((data) => {
       setTableItem(data);
-      console.log('d');
     });
   }, []);
+
   useEffect(() => {
     if (tableItem.length > 0) {
       changeValue('pricePerMonth', tableItem[1].pricePerMonth);

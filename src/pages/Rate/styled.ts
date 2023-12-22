@@ -3,7 +3,7 @@ import { theme } from '../../styles';
 type Props = { ref: React.MutableRefObject<HTMLInputElement | undefined> };
 
 export const StyledTextFiled = styled.input<Props>`
-  width: 50px;
+  width: 70px;
   min-height: 60px;
   padding-left: 20px;
   font-size: 20px;
