@@ -75,7 +75,11 @@ const ChildLoanDetail = () => {
           {path.includes('child') && (
             <BigButton
               text="납입"
-              onClick={() => repaymentLoan(Number(params.loanId))}
+              onClick={() => {
+                if (data && data?.repaymentCnt !== data?.period)
+                  repaymentLoan(Number(params.loanId));
+                else alert('모든 금액을 상환했습니다.');
+              }}
             />
           )}
         </>
