@@ -20,6 +20,7 @@ import {
   TContainer,
 } from '../SelectPage/styled';
 import { theme } from '../../styles';
+import Balance from '../../components/common/Balance/Balance';
 
 // import TitleWebp from '../../../assets/images/title.webp';
 // import TitleJPG from '../../assets/images/title.jpg';
@@ -49,6 +50,7 @@ const ChildHome = () => {
             <StyledTitleDiv>money</StyledTitleDiv>
           </MainTitleContainer>
         </HomeTitleContainer>
+        <Balance id={2} />
         <CardGridContainer>
           <HomeCardContainer onClick={() => navigate('/child/ready')} id={1}>
             <MainTitleContainer>송금</MainTitleContainer>

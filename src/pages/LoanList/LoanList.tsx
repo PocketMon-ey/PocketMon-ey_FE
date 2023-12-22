@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { userServiceAxiosInstance } from '../../core/api/axios';
 import { useQueries, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import Balance from '../../components/common/Balance/Balance';
 
 type Props = {
   familyrate: number;
@@ -50,6 +51,7 @@ const LoanList = () => {
         <Header headerTitle="대출 목록" />
         <UserTab familyrate={data?.familyrate} primerate={data?.primerate} />
         <TabBar status={status} setStatus={setStatus} />
+        <Balance id={path.includes('child') ? 2 : 1} />
         <CardGrid status={status} />
         <AddButtonContainer onClick={() => navigate('/child/loan/apply')}>
           {path.includes('child') ? <AddButton></AddButton> : <></>}
