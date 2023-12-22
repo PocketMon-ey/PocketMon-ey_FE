@@ -27,6 +27,8 @@ const Card = ({ id, reason, price, startDate, status }: Props) => {
           }
         } else if (status === 1) {
           navigate(`${baseUrl}/detail/${id}`);
+        } else if (status === 2) {
+          navigate(`${baseUrl}/complete/${id}`);
         }
       }}
     >

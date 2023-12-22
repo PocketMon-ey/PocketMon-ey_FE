@@ -19,6 +19,7 @@ import ActualPayment from './pages/Loan/ActualPayment';
 import Ready from './pages/Ready/Ready';
 import { GlobalContextProvider } from './context/context';
 import LoanList from './pages/LoanList/LoanList';
+import Complete from './pages/Complete/Complete';
 
 function App() {
   return (
@@ -70,18 +71,11 @@ function App() {
             <Route path="/parent/loan/rate/family" element={<FamilyRate />} />
             <Route path="/parent/loan/rate/prime" element={<PrimeRate />} />
             <Route path="/parent/ready" element={<Ready />} />
+            <Route
+              path="/parent/loan/complete/:loanId"
+              element={<Complete />}
+            />
 
-            {/* <Route path="/child" element={<Layout />}>
-              <Route path="home" element={<ChildHome />} />
-              <Route path="loan">
-                <Route path="list" element={<LoanList />} />
-                <Route path="apply" element={<ApplyLoan />} />
-                <Route path="actualPayment" element={<ActualPayment />} />
-                <Route path="checkContract" element={<CheckContract />} />
-                <Route path="detail/:loanId" element={<LoanDetail />} />
-              </Route>
-              <Route path="ready" element={<Ready />} />
-            </Route> */}
             <Route path="/child/home" element={<ChildHome />} />
             <Route path="/child/loan/list" element={<LoanList />} />
             <Route path="/child/loan/apply" element={<ApplyLoan />} />
@@ -99,6 +93,7 @@ function App() {
             />
             <Route path="/child/loan/detail/:loanId" element={<LoanDetail />} />
             <Route path="/child/ready" element={<Ready />} />
+            <Route path="/child/loan/complete/:loanId" element={<Complete />} />
           </Routes>
         </GlobalContextProvider>
       </MobileView>
