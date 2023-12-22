@@ -4,31 +4,34 @@ import { BalanceContainer, NextSendAlarm, ProgressBackground } from './styled';
 import { theme } from '../../styles';
 import { Progress } from 'antd';
 import { BigButton, Header } from '../../components/common';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import {
   DetailResponse,
   getDetail,
 } from '../../core/api/loan/useLoanDetailGet';
 import { useLoanService } from '../../core/loanService';
 import { postLoan } from '../../core/api/loan/useLoanPost';
-import { loanRepayment } from '../../core/api/loan/useRepaymentPost';
+import {
+  LoanPutResponse,
+  loanRepayment,
+} from '../../core/api/loan/useRepaymentPost';
+import { useQuery } from '@tanstack/react-query';
+import { loanServiceAxiosInstance } from '../../core/api/axios';
 
 const ChildLoanDetail = () => {
   const path = useLocation().pathname;
   const params = useParams();
+  const navigate = useNavigate();
   const { addComma } = useLoanService();
-  const [data, setData] = useState<DetailResponse>();
-  useEffect(() => {
-    if (params.loanId) {
-      getDetail(Number(params.loanId)).then((response) => {
-        console.log(response);
-        setData(response);
-      });
-    }
-  }, []);
+
+  const { data } = useQuery<DetailResponse>({
+    queryKey: ['getLoanDetail'],
+    queryFn: () => getDetail(Number(params.loanId)),
+    refetchOnReconnect: true,
+  });
   const repaymentLoan = (loanId: number) => {
     loanRepayment(Number(params.loanId)).then((response) => {
-      console.log(response);
+      alert('납입이 되었습니다.');
     });
   };
   const calPercent = (repaymentCnt: number, period: number) => {
