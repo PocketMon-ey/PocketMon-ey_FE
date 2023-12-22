@@ -19,10 +19,12 @@ const Card = ({ id, reason, price, startDate, status }: Props) => {
   useEffect(() => {
     if (path.includes('parent')) {
       if (status === 0) setBaseUrl('/parent/loan/checkContract');
-      else setBaseUrl('/parent/loan/detail');
+      else if (status === 1) setBaseUrl('/parent/loan/detail');
+      else if (status === 2) setBaseUrl('/parent/loan/complete');
     } else {
       if (status === 0) setBaseUrl('/child/loan/checkContract');
-      else setBaseUrl('/child/loan/detail');
+      else if (status === 1) setBaseUrl('/child/loan/detail');
+      else if (status === 2) setBaseUrl('/child/loan/complete');
     }
   }, []);
   return (
