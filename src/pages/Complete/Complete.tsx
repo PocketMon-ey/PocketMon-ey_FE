@@ -23,7 +23,6 @@ const Complete = () => {
         )}`,
       )
       .then((res) => {
-        console.log(res.data);
         setLoanInfo(res.data);
       });
   }, []);
