@@ -19,7 +19,6 @@ const CheckContract = () => {
     pricePerMonth,
     totalPrice,
   } = loanApplyStore();
-
   return (
     <>
       <Header headerTitle="대출 심사" />
@@ -45,24 +44,24 @@ const CheckContract = () => {
       )}
       <ContentBackground />
       <StyledButtonBottom>
-        {path.includes('checkContract') &&
-          typeof parseInt(path[path.length - 1]) !== 'number' && (
-            <BigButton
-              text="다음"
-              onClick={async () => {
-                await postLoan({
-                  childId: 3,
-                  loanInterest: loanInterest,
-                  period: period,
-                  price: price,
-                  pricePerMonth: pricePerMonth,
-                  reason: reason,
-                  totalPrice: totalPrice,
-                });
-                navigate('/child/loan/list');
-              }}
-            />
-          )}
+        {path.includes('checkContract') && path[path.length - 1] === 't' && (
+          <BigButton
+            text="다음"
+            onClick={async () => {
+              await postLoan({
+                childId: 3,
+                loanInterest: loanInterest,
+                period: period,
+                price: price,
+                pricePerMonth: pricePerMonth,
+                reason: reason,
+                totalPrice: totalPrice,
+              });
+              alert('대출 요청 완료');
+              navigate('/child/loan/list');
+            }}
+          />
+        )}
         {path.includes('judge') && (
           <StyledButtonFlexContainer>
             <BigButton
