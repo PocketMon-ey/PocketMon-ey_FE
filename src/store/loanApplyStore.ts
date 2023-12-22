@@ -24,6 +24,7 @@ const initialState: LoanApplyData = {
 export interface LoanApplyStore extends LoanApplyData {
   [index: string]: number | undefined | Function | Object;
   changeValue: (inputId: string, inputValue: string | number) => void;
+  changeInitialize: () => void;
 }
 
 export const loanApplyStore = create<LoanApplyStore>()(
@@ -32,6 +33,10 @@ export const loanApplyStore = create<LoanApplyStore>()(
     changeValue: (inputId: string, inputValue: string | number) =>
       set(() => ({
         [inputId]: inputValue,
+      })),
+    changeInitialize: () =>
+      set(() => ({
+        ...initialState,
       })),
   })),
 );

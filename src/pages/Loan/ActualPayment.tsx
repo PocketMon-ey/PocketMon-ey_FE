@@ -159,7 +159,7 @@ const ActualPayment = () => {
         <BigButton
           onClick={() => {
             navigate('/child/loan/checkContract');
-            changeValue('periodIdx', value);
+            changeValue('period', value);
           }}
           text="다음"
         />
