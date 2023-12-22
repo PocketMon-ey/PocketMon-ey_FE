@@ -26,21 +26,7 @@ const Card = ({ id, reason, price, startDate, status }: Props) => {
     }
   }, []);
   return (
-    <CardContainer
-      onClick={() => {
-        if (status === 0) {
-          if (path.includes('parent')) {
-            navigate(`${baseUrl}/judge/${id}`);
-          } else {
-            navigate(`${baseUrl}/checkContract/${id}`);
-          }
-        } else if (status === 1) {
-          navigate(`${baseUrl}/detail/${id}`);
-        } else if (status === 2) {
-          navigate(`${baseUrl}/complete/${id}`);
-        }
-      }}
-    >
+    <CardContainer onClick={() => navigate(`${baseUrl}/${id}`)}>
       <CardHeader status={status} startDate={startDate} />
       <CardContent reason={reason} totalPrice={price} />
     </CardContainer>
