@@ -123,16 +123,16 @@ const ContentBackground = () => {
         {(path.includes('ongoing') || path.includes('detail')) && (
           <StyledDetailItem>
             <span>시작일</span>
-            {(path.includes('detail') || params.loanId) && data && (
-              <span>{`20${data.startDate}`}</span>
-            )}
+            {(path.includes('detail') || params.loanId) &&
+              data &&
+              data?.startDate && <span>{`20${data.startDate}`}</span>}
           </StyledDetailItem>
         )}
         {(path.includes('ongoing') || path.includes('detail')) && (
           <StyledDetailItem>
             <span>마감일</span>
-            {(path.includes('detail') || params.loanId) && data && (
-              <span>{`20${data?.endDate}`}</span>
+            {(path.includes('detail') || params.loanId) && data?.endDate && (
+              <span>{`20${data.endDate}`}</span>
             )}
           </StyledDetailItem>
         )}
@@ -140,8 +140,8 @@ const ContentBackground = () => {
           <StyledDetailItem>
             <span>납입일</span>
 
-            {(path.includes('detail') || params.loanId) && data && (
-              <span>매달 {data?.startDate.split('.')[2]}일</span>
+            {(path.includes('detail') || params.loanId) && data?.startDate && (
+              <span>매달 {data.startDate.toString().split('.')[2]}일</span>
             )}
           </StyledDetailItem>
         )}

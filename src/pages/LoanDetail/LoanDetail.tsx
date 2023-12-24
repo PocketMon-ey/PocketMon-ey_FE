@@ -47,8 +47,12 @@ const ChildLoanDetail = () => {
             <BalanceContainer>{addComma(data?.remainPrice)}원</BalanceContainer>
             <NextSendAlarm>
               다음 납입일은 2024.
-              {(1 + Number(data?.repaymentCnt)).toString().padStart(2, '0')}.
-              {data?.startDate.split('.')[2]} 입니다
+              {data?.startDate &&
+                `${(1 + Number(data?.repaymentCnt))
+                  .toString()
+                  .padStart(2, '0')}.
+              ${data?.startDate.toString().split('.')[2]}`}{' '}
+              입니다
             </NextSendAlarm>
             <Progress
               percent={calPercent(data?.repaymentCnt, data?.period)}
