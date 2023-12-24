@@ -59,7 +59,7 @@ const ParentHome = () => {
                 '1 0',
               );
             } else {
-              navigate('/child/ready');
+              navigate('/parent/ready');
             }
           }}
         >
