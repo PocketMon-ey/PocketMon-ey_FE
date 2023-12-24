@@ -59,7 +59,7 @@ const CheckContract = () => {
             text="다음"
             onClick={async () => {
               await postLoan({
-                childId: 3,
+                childId: 2,
                 loanInterest: loanInterest,
                 period: period,
                 price: price,
