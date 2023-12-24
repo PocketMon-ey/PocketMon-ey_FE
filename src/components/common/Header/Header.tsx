@@ -30,7 +30,12 @@ const Header = ({ headerTitle }: Props) => {
             } else {
               navigate('/child/home');
             }
-          } else {
+          } else if (path.includes('parent/mission/reject')) {
+            window.webkit.messageHandlers.back.postMessage(
+              "test"
+            )
+          } 
+          else {
             navigate(-1);
           }
         }}
@@ -44,6 +49,11 @@ const Header = ({ headerTitle }: Props) => {
             navigate('/parent/home');
           } else {
             navigate('/child/home');
+          }
+          if (path.includes('parent/mission/reject')) {
+            window.webkit.messageHandlers.home.postMessage(
+              "test"
+            )
           }
         }}
       >
