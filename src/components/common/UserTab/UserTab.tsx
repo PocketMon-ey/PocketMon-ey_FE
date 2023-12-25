@@ -1,6 +1,9 @@
 import React from 'react';
 import { EditButton, UserTabContainer, UserTabHeader } from './styled';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { missionServiceAxiosInstance } from '../../../core/api/axios';
 
 type Props = {
   familyrate: number | undefined;
@@ -10,11 +13,19 @@ type Props = {
 const UserTab = ({ familyrate, primerate }: Props) => {
   const path = useLocation().pathname;
   const navigate = useNavigate();
+  const fetchCredit = async () =>
+    await missionServiceAxiosInstance
+      .get(`/mission/credit/2`)
+      .then((res) => res.data.creditRate);
+  const { data } = useQuery({
+    queryKey: ['credit'],
+    queryFn: () => fetchCredit(),
+  });
   return (
     <UserTabContainer>
       <UserTabHeader>
         <div>
-          {path.includes('parent') ? '김지훈(아이)' : '김지훈'}님의 가족 금리 :{' '}
+          {path.includes('parent') ? '김금쪽(아이)' : '김금쪽'}님의 가족 금리 :{' '}
           {familyrate}%
         </div>
         {path.includes('parent') ? (
@@ -26,10 +37,10 @@ const UserTab = ({ familyrate, primerate }: Props) => {
         )}
       </UserTabHeader>
       <div>
-        {path.includes('parent') ? '김지훈(아이)' : '김지훈'}님의 우대 금리 :{' '}
+        {path.includes('parent') ? '김금쪽(아이)' : '김금쪽'}님의 우대 금리 :{' '}
         {primerate}%
       </div>
-      <div>신용도 : 800 / 1000</div>
+      <div>신용도 : {data} / 1000</div>
     </UserTabContainer>
   );
 };

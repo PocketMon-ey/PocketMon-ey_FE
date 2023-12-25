@@ -17,6 +17,7 @@ import CollyReject from '../../components/common/CollyReject/CollyReject';
 import UpArrow from '../../components/common/UpArrow/UpArrow';
 import { loanServiceAxiosInstance } from '../../core/api/axios';
 import { useLocation, useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const ParentReject = () => {
   const path = useLocation().pathname;
@@ -27,7 +28,7 @@ const ParentReject = () => {
       <Header headerTitle=""></Header>
       <div style={{ height: '200vh' }}>
         <RejectHeader>
-          김지훈(아이)의 <br /> 대출 요청을
+          김금쪽(아이)의 <br /> 대출 요청을
           <br /> 왜 반려하시나요?
         </RejectHeader>
         <RejectImageContainer>
@@ -43,7 +44,11 @@ const ParentReject = () => {
                 })
                 .then((res) => {
                   if (res.status === 200) {
-                    alert('반려 사유가 과한 금액으로 전송되었습니다.');
+                    swal(
+                      '과한 금액',
+                      '과한 금액으로 반려 사유가 전송되었습니다.',
+                      'info',
+                    );
                     navigate('/parent/loan/list');
                   }
                 });
@@ -60,7 +65,11 @@ const ParentReject = () => {
                 })
                 .then((res) => {
                   if (res.status === 200) {
-                    alert('반려 사유가 신청 사유 미흡으로 전송되었습니다.');
+                    swal(
+                      '신청 사유 미흡',
+                      '신청 사유 미흡으로 반려 사유가 전송되었습니다.',
+                      'info',
+                    );
                     navigate('/parent/loan/list');
                   }
                 });
@@ -77,7 +86,11 @@ const ParentReject = () => {
                 })
                 .then((res) => {
                   if (res.status === 200) {
-                    alert('반려 사유가 채무 부담으로 전송되었습니다.');
+                    swal(
+                      '채무 부담',
+                      '채무 부담으로 반려 사유가 전송되었습니다.',
+                      'info',
+                    );
                     navigate('/parent/loan/list');
                   }
                 });
@@ -94,7 +107,11 @@ const ParentReject = () => {
                 })
                 .then((res) => {
                   if (res.status === 200) {
-                    alert('반려 사유가 낮은 신용도로 전송되었습니다.');
+                    swal(
+                      '반려 사유 전송',
+                      '낮은 신용도로 반려 사유가 전송되었습니다.',
+                      'info',
+                    );
                     navigate('/parent/loan/list');
                   }
                 });
@@ -130,7 +147,11 @@ const ParentReject = () => {
                 })
                 .then((res) => {
                   if (res.status === 200) {
-                    alert('직접 작성된 반려 사유가 전송되었습니다.');
+                    swal(
+                      '반려 사유 전송',
+                      '직접 작성된 반려 사유가 전송되었습니다.',
+                      'info',
+                    );
                     navigate('/parent/loan/list');
                   }
                 });
