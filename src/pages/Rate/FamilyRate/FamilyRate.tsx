@@ -12,6 +12,7 @@ import {
 } from '../../../core/api/user/useFamilyRatePut';
 import { userServiceAxiosInstance } from '../../../core/api/axios';
 import { useQuery } from '@tanstack/react-query';
+import swal from 'sweetalert';
 const FamilyRate = () => {
   // const [familyRate, setFamilyRate] = useState<string>('5');
 
@@ -51,26 +52,36 @@ const FamilyRate = () => {
 
           if (familyRateInput.current) {
             if (parseFloat(familyRateInput.current.value) <= 0) {
-              alert('가족 금리는 0 이상이어야 합니다!');
+              swal(
+                '금리 조정 실패',
+                '가족 금리는 0 이상이어야 합니다!',
+                'error',
+              );
               return;
             } else if (parseFloat(familyRateInput.current.value) > 20) {
-              alert('금리가 너무 높습니다.');
+              swal('금리 조정 실패', '금리가 너무 높습니다.', 'error');
               return;
             } else if (!parseFloat(familyRateInput.current.value)) {
-              alert('숫자를 입력해주세요!');
+              swal('금리 조정 실패', '숫자를 입력하세요.', 'error');
               return;
             } else if (familyRateInput.current.value <= preferInterestRate) {
-              alert(
+              swal(
+                '금리 조정 실패',
                 `가족금리는 우대금리보다 높아야 합니다. \n 현재 우대금리 : ${preferInterestRate}`,
+                'error',
               );
               return;
             }
             putFamilyRate(parseFloat(familyRateInput.current.value)).then(
               (response) => {
                 if (typeof response === 'number') {
-                  alert(`가족금리가 수정되었습니다.`);
+                  swal(
+                    '금리 조정 완료',
+                    `가족금리가 수정되었습니다.`,
+                    'success',
+                  );
                 } else {
-                  alert('네트워크 오류!');
+                  swal('네트워크 오류', ``, 'error');
                 }
               },
             );

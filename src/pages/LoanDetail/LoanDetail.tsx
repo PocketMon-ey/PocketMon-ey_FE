@@ -17,6 +17,7 @@ import {
 } from '../../core/api/loan/useRepaymentPost';
 import { useQuery } from '@tanstack/react-query';
 import { loanServiceAxiosInstance } from '../../core/api/axios';
+import swal from 'sweetalert';
 
 const ChildLoanDetail = () => {
   const path = useLocation().pathname;
@@ -31,7 +32,7 @@ const ChildLoanDetail = () => {
   });
   const repaymentLoan = (loanId: number) => {
     loanRepayment(Number(params.loanId)).then((response) => {
-      alert('납입이 되었습니다.');
+      swal('납입 완료', '대출금이 납입되었습니다.', 'success');
     });
   };
   const calPercent = (repaymentCnt: number, period: number) => {
@@ -82,7 +83,7 @@ const ChildLoanDetail = () => {
               onClick={() => {
                 if (data && data?.repaymentCnt !== data?.period)
                   repaymentLoan(Number(params.loanId));
-                else alert('모든 금액을 상환했습니다.');
+                else swal('상환 완료', '모든 금액을 상환했습니다.', 'success');
               }}
             />
           )}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import RejectImage from '../../../assets/images/colly_reject.jpg';
+import RejectImage from '../../../assets/images/colly_reject.svg';
 
 const CollyReject = () => {
   return (

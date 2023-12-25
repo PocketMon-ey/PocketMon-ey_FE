@@ -8,6 +8,7 @@ import { LoanItem, getLoan } from '../../core/api/loan/useLoanGet';
 import { postLoan } from '../../core/api/loan/useLoanPost';
 import { useNavigate } from 'react-router-dom';
 import { useLoanService } from '../../core/loanService';
+import swal from 'sweetalert';
 
 const ApplyLoan = () => {
   const { reason, price, changeValue } = loanApplyStore();
@@ -55,22 +56,22 @@ const ApplyLoan = () => {
       <StyledButtonBottom
         onClick={() => {
           if (!reason) {
-            alert('대출 사유를 입력해주세요');
+            swal('대출 신청 실패', '대출 사유를 입력해주세요', 'warning');
             return;
           } else {
             if (price) {
               if (typeof price !== 'number') {
-                alert('금액은 숫자로 입력해주세요');
+                swal('대출 신청 실패', '금액은 숫자로 입력해주세요', 'warning');
                 return;
               } else if (price < 0) {
-                alert('올바르지 않은 금액입니다.');
+                swal('대출 신청 실패', '올바르지 않은 금액입니다.', 'warning');
                 return;
               } else if (price > 5000000) {
-                alert('대출 금액이 너무 높습니다.');
+                swal('대출 신청 실패', '대출 금액이 너무 높습니다.', 'warning');
                 return;
               }
             } else {
-              alert('금액을 입력해주세요');
+              swal('대출 신청 실패', '금액을 입력해주세요.', 'warning');
               return;
             }
           }

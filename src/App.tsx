@@ -20,6 +20,7 @@ import Ready from './pages/Ready/Ready';
 import { GlobalContextProvider } from './context/context';
 import LoanList from './pages/LoanList/LoanList';
 import Complete from './pages/Complete/Complete';
+import MissionReject from './pages/MissionReject/MissionReject';
 
 function App() {
   return (
@@ -79,7 +80,7 @@ function App() {
               path="/parent/loan/complete/:loanId"
               element={<Complete />}
             />
-
+            <Route path="/parent/mission/reject" element={<MissionReject />} />
             <Route path="/child/home" element={<ChildHome />} />
             <Route path="/child/loan/list" element={<LoanList />} />
             <Route path="/child/loan/apply" element={<ApplyLoan />} />
