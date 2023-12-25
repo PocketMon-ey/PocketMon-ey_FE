@@ -14,7 +14,7 @@ const UserTab = ({ familyrate, primerate }: Props) => {
     <UserTabContainer>
       <UserTabHeader>
         <div>
-          {path.includes('parent') ? '김지훈(아이)' : '김지훈'}님의 가족 금리 :{' '}
+          {path.includes('parent') ? '김금쪽(아이)' : '김금쪽'}님의 가족 금리 :{' '}
           {familyrate}%
         </div>
         {path.includes('parent') ? (
@@ -26,7 +26,7 @@ const UserTab = ({ familyrate, primerate }: Props) => {
         )}
       </UserTabHeader>
       <div>
-        {path.includes('parent') ? '김지훈(아이)' : '김지훈'}님의 우대 금리 :{' '}
+        {path.includes('parent') ? '김금쪽(아이)' : '김금쪽'}님의 우대 금리 :{' '}
         {primerate}%
       </div>
       <div>신용도 : 800 / 1000</div>

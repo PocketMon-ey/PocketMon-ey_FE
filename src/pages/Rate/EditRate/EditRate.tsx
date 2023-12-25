@@ -26,7 +26,7 @@ const EditRate = () => {
       <div>
         <TitleHeader
           title="우대금리 조정하기"
-          firstS="김지훈(아이)에게 적용되는"
+          firstS="김금쪽(아이)에게 적용되는"
           secondS="우대금리를 조정할 수 있어요"
         ></TitleHeader>
         <EditButtonContainer

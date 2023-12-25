@@ -27,7 +27,7 @@ const ParentReject = () => {
       <Header headerTitle=""></Header>
       <div style={{ height: '200vh' }}>
         <RejectHeader>
-          김지훈(아이)의 <br /> 대출 요청을
+          김금쪽(아이)의 <br /> 대출 요청을
           <br /> 왜 반려하시나요?
         </RejectHeader>
         <RejectImageContainer>
