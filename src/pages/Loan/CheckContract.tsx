@@ -7,6 +7,7 @@ import { postLoan } from '../../core/api/loan/useLoanPost';
 import { loanApplyStore } from '../../store/loanApplyStore';
 import { useEffect, useState } from 'react';
 import { loanServiceAxiosInstance } from '../../core/api/axios';
+import swal from 'sweetalert';
 
 const CheckContract = () => {
   const path = useLocation().pathname;
@@ -68,7 +69,7 @@ const CheckContract = () => {
                 totalPrice: totalPrice,
               });
               changeInitialize();
-              alert('대출 요청 완료');
+              swal('대출 신청 완료', '대출 신청이 완료되었습니다.', 'success');
               navigate('/child/loan/list');
             }}
           />
@@ -84,7 +85,11 @@ const CheckContract = () => {
                   })
                   .then((res) => {
                     if (res.status === 200) {
-                      alert('승인 완료!');
+                      swal(
+                        '대출 승인 완료',
+                        '대출 승인이 완료되었습니다.',
+                        'success',
+                      );
                     }
                   });
                 navigate(`/parent/loan/list`);
