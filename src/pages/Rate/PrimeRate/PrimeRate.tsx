@@ -10,12 +10,16 @@ import {
   fetchPrimeRate,
   putPrimeRate,
 } from '../../../core/api/user/usePrimeRatePut';
-import { userServiceAxiosInstance } from '../../../core/api/axios';
+import {
+  missionServiceAxiosInstance,
+  userServiceAxiosInstance,
+} from '../../../core/api/axios';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { getRate } from '../../../core/api/user/useFamilyRatePut';
 
 const PrimeRate = () => {
   // const [primeRate, setPrimeRate] = useState<string>('2');
+  const [success, setSuccess] = useState();
   const primeRateInput = useRef<HTMLInputElement>();
 
   const fetchPrimeRate = async () =>
@@ -26,18 +30,31 @@ const PrimeRate = () => {
     queryFn: () => fetchPrimeRate(),
   });
 
+  const fetchCredit = async () =>
+    await missionServiceAxiosInstance
+      .get(`/mission/achieve/2`)
+      .then((res) => setSuccess(res.data.achievementRate));
+
+  const credit = useQuery({
+    queryKey: ['credit'],
+    queryFn: () => fetchCredit(),
+  });
+
   const rate = useQuery({
     queryKey: ['rate'],
     queryFn: () => getRate(),
   });
 
+  useEffect(() => {
+    fetchCredit();
+  }, []);
   return (
     <>
       <Header headerTitle="금리 조정" />
       <RateHeader>
         <RateTitle>김금쪽(아이)의</RateTitle>
         <RateParagraph>현재 우대금리 : {data}%</RateParagraph>
-        <RateParagraph>미션 달성률 : 50%</RateParagraph>
+        <RateParagraph>미션 달성률 : {success}%</RateParagraph>
         <div
           style={{
             display: 'flex',
