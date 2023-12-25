@@ -52,11 +52,11 @@ const MissionReject = () => {
             <RejectReasonContainer
               onClick={() =>
                 window.webkit.messageHandlers.rejectReason.postMessage(
-                  '추후 확인',
+                  '부적절한 미션',
                 )
               }
             >
-              추후 확인
+              부적절한 미션
             </RejectReasonContainer>
             <div
               onClick={() => {

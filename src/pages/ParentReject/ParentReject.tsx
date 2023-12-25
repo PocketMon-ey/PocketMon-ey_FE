@@ -140,6 +140,14 @@ const ParentReject = () => {
           <BigButton
             text="전송"
             onClick={async () => {
+              if (!inputRef.current?.value) {
+                swal(
+                  '반려 사유 전송 실패',
+                  '반려 사유를 입력해주세요',
+                  'warning',
+                );
+                return;
+              }
               await loanServiceAxiosInstance
                 .put('/loan/refuse', {
                   loanId: path.split('/')[4],
