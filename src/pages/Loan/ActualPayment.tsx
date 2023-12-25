@@ -145,7 +145,7 @@ const ActualPayment = () => {
           </ConfigProvider>
           <StyledDetailInformation>
             <span>
-              {'김금쪽'}님의 현재 대출금리는 {loanInterest}% 입니다.
+              {'김지훈'}님의 현재 대출금리는 {loanInterest}% 입니다.
             </span>
             <p>
               * 대출금리: 가족금리 {data?.familyrate}% - 우대금리{' '}
@@ -155,15 +155,13 @@ const ActualPayment = () => {
         </StyledBackground>
       )}
 
-      <StyledButtonBottom>
-        <BigButton
-          onClick={() => {
-            navigate('/child/loan/checkContract');
-            changeValue('period', value);
-          }}
-          text="다음"
-        />
-      </StyledButtonBottom>
+      <BigButton
+        onClick={() => {
+          navigate('/child/loan/checkContract');
+          changeValue('period', value);
+        }}
+        text="다음"
+      />
     </>
   );
 };
