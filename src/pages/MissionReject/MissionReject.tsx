@@ -24,7 +24,7 @@ const MissionReject = () => {
         <Header headerTitle=""></Header>
         <div style={{ height: '200vh' }}>
           <RejectHeader>
-            김지훈(아이)의 <br /> 미션 완료 요청을
+            김금쪽(아이)의 <br /> 미션 완료 요청을
             <br /> 왜 반려하시나요?
           </RejectHeader>
           <RejectImageContainer>

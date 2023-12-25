@@ -35,7 +35,7 @@ const PrimeRate = () => {
     <>
       <Header headerTitle="금리 조정" />
       <RateHeader>
-        <RateTitle>김지훈(아이)의</RateTitle>
+        <RateTitle>김금쪽(아이)의</RateTitle>
         <RateParagraph>현재 우대금리 : {data}%</RateParagraph>
         <RateParagraph>미션 달성률 : 50%</RateParagraph>
         <div
