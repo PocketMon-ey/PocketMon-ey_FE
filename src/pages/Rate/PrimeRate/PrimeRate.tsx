@@ -13,7 +13,6 @@ import {
 import { userServiceAxiosInstance } from '../../../core/api/axios';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { getRate } from '../../../core/api/user/useFamilyRatePut';
-import swal from 'sweetalert';
 
 const PrimeRate = () => {
   // const [primeRate, setPrimeRate] = useState<string>('2');
@@ -62,35 +61,30 @@ const PrimeRate = () => {
           const { familyRate, preferInterestRate } = rate.data?.data;
           if (primeRateInput.current) {
             if (parseFloat(primeRateInput.current.value) < 0) {
-              swal('금리 조정 실패', '우대 금리는 0보다 커야 합니다!', 'error');
+              alert('우대 금리는 0보다 커야 합니다!');
               return;
             } else if (parseFloat(primeRateInput.current.value) > 20) {
-              swal('금리 조정 실패', '금리가 너무 높습니다.', 'error');
+              alert('금리가 너무 높습니다.');
               return;
             } else if (!parseFloat(primeRateInput.current.value)) {
-              swal('금리 조정 실패', '숫자를 입력해주세요!', 'error');
+              alert('숫자를 입력해주세요!');
               return;
             } else if (primeRateInput.current.value >= familyRate) {
-              swal(
-                '금리 조정 실패',
+              alert(
                 `우대금리는 가족금리 보다 낮아야 합니다. \n 현재 가족금리 : ${familyRate}`,
-                'error',
               );
               return;
             }
             putPrimeRate(parseFloat(primeRateInput.current.value))
               .then((response) => {
                 if (typeof response === 'number') {
-                  swal(
-                    '금리 조정 완료',
-                    `우대 금리가 조정되었습니다.`,
-                    'success',
-                  );
+                  // setPrimeRate(response.toString());
+                  alert('우대 금리가 수정되었습니다.');
                 } else {
-                  swal('네트워크 오류', ``, 'error');
+                  alert('오류!');
                 }
               })
-              .catch((err) => swal('네트워크 오류', ``, 'error'));
+              .catch((err) => alert(err.response));
             primeRateInput.current.value = '';
           } else {
             return;
