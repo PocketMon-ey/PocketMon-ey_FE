@@ -13,3 +13,10 @@ export const loanServiceAxiosInstance = axios.create({
     'Content-Type': 'application/json',
   },
 });
+
+export const missionServiceAxiosInstance = axios.create({
+  baseURL: `${process.env.REACT_APP_MISSION_BASE_URL}`,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
